@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NightClose — A habit app that doesn't rely on streaks</title>
+  
+  <!-- Tally.so Embed Script -->
+  <script async src="https://tally.so/widgets/embed.js"></script>
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #F5EDE4;
+      background: linear-gradient(180deg, #1A1410 0%, #0E0C0A 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 120px 0 80px;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      color: #FFFFFF;
+      line-height: 1.1;
+    }
+    
+    .hero .subheadline {
+      font-size: 20px;
+      line-height: 1.5;
+      color: rgba(245, 237, 228, 0.8);
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: #A77962;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 16px 40px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .cta-button:hover {
+      background: #B89587;
+      transform: translateY(-2px);
+    }
+    
+    .hero .caption {
+      margin-top: 16px;
+      font-size: 14px;
+      color: rgba(245, 237, 228, 0.5);
+    }
+    
+    /* Section */
+    section {
+      padding: 80px 0;
+    }
+    
+    .section-title {
+      font-size: 40px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 60px;
+      color: #FFFFFF;
+    }
+    
+    /* Problem Cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(184, 165, 153, 0.08);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(184, 165, 153, 0.12);
+      transform: translateY(-4px);
+    }
+    
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 16px;
+      color: #FFFFFF;
+    }
+    
+    .card p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(245, 237, 228, 0.7);
+    }
+    
+    /* Feature Blocks */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+    
+    .feature {
+      text-align: center;
+    }
+    
+    .feature-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+      display: block;
+    }
+    
+    .feature h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: #FFFFFF;
+    }
+    
+    .feature p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(245, 237, 228, 0.7);
+    }
+    
+    /* Pricing */
+    .pricing-card {
+      max-width: 480px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(184, 165, 153, 0.12);
+      border-radius: 20px;
+      padding: 48px;
+      text-align: center;
+    }
+    
+    .pricing-card .price {
+      font-size: 56px;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+    
+    .pricing-card .period {
+      font-size: 18px;
+      color: rgba(245, 237, 228, 0.6);
+      margin-bottom: 32px;
+    }
+    
+    .pricing-card ul {
+      list-style: none;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+    
+    .pricing-card li {
+      font-size: 16px;
+      padding: 12px 0;
+      color: rgba(245, 237, 228, 0.8);
+      border-bottom: 1px solid rgba(184, 165, 153, 0.08);
+    }
+    
+    .pricing-card li:before {
+      content: "✓ ";
+      color: #A77962;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+    
+    .pricing-card .early-bird {
+      background: rgba(167, 121, 98, 0.15);
+      color: #A77962;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      display: inline-block;
+      margin-top: 16px;
+    }
+    
+    /* FAQ */
+    .faq {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(184, 165, 153, 0.08);
+    }
+    
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    
+    .faq-item h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: #FFFFFF;
+    }
+    
+    .faq-item p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(245, 237, 228, 0.7);
+    }
+    
+    /* Waitlist Section */
+    .waitlist-text {
+      text-align: center;
+      color: rgba(245, 237, 228, 0.7);
+      margin-bottom: 40px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    
+    .trust-badge {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 14px;
+      color: rgba(245, 237, 228, 0.5);
+    }
+    
+    /* Footer */
+    footer {
+      padding: 60px 0 40px;
+      text-align: center;
+      border-top: 1px solid rgba(184, 165, 153, 0.08);
+      margin-top: 80px;
+    }
+    
+    footer p {
+      color: rgba(245, 237, 228, 0.5);
+      font-size: 14px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 40px; }
+      .hero .subheadline { font-size: 18px; }
+      .section-title { font-size: 32px; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>A habit app that doesn't<br>rely on streaks.</h1>
+      <p class="subheadline">
+        See only your wins. Get a quiet exit when you can't.<br>
+        Built for people who know what to do—but beat themselves up when they don't.
+      </p>
+      <!-- Tally.so Popup Button - 替换这里的 YOUR_FORM_ID -->
+      <button 
+        class="cta-button"
+        data-tally-open="YOUR_FORM_ID" 
+        data-tally-emoji-text="👋" 
+        data-tally-emoji-animation="wave">
+        Join the Waitlist  →
+      </button>
+      <p class="caption">Early access · $4.99/mo · iOS launching Summer 2026</p>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">You know what needs to be done.</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>❌ Streak Anxiety</h3>
+          <p>Every habit app punishes you with a broken streak. The pressure makes you quit before you start.</p>
+        </div>
+        <div class="card">
+          <h3>❌ Self-Blame Spiral</h3>
+          <p>Miss a day, and you're stuck replaying "I failed again." No app helps you move past it.</p>
+        </div>
+        <div class="card">
+          <h3>❌ All-or-Nothing Trap</h3>
+          <p>21 days in a row or nothing? Life doesn't work that way—and neither should your habits.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">NightClose works differently.</h2>
+      <div class="features">
+        <div class="feature">
+          <span class="feature-icon">🔄</span>
+          <h3>21 completions in 42 days</h3>
+          <p>Not consecutive. Not punishing. Just consistent enough. A habit tracker that understands real life.</p>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">✨</span>
+          <h3>See only your successes</h3>
+          <p>Every win gets an AI-crafted badge. Your timeline only shows the good—no red marks, no guilt.</p>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">🌙</span>
+          <h3>A gentle exit when you can't</h3>
+          <p>Didn't do it today? That's okay. Close the day quietly. Start fresh tomorrow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Simple, honest pricing.</h2>
+      <div class="pricing-card">
+        <div class="price">$4.99</div>
+        <div class="period">per month</div>
+        <ul>
+          <li>One habit to start</li>
+          <li>Unlimited cycles</li>
+          <li>AI-powered insights</li>
+          <li>Beautiful lock screen reminders</li>
+          <li>No ads, no tricks</li>
+        </ul>
+        <!-- Tally.so Popup Button -->
+        <button 
+          class="cta-button"
+          data-tally-open="YOUR_FORM_ID" 
+          data-tally-emoji-text="👋" 
+          data-tally-emoji-animation="wave">
+          Reserve Your Spot  →
+        </button>
+        <div class="early-bird">Early Bird: Get 2 months free</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Frequently asked questions</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>How is this different from Streaks or Done?</h3>
+          <p>We don't track consecutive days. NightClose uses a 42-day cycle—21 completions in 42 days. You can skip days without guilt. And when you can't do it, we give you a quiet exit, not a lecture.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What if I miss more than half the days?</h3>
+          <p>The cycle resets, but your total progress stays. No shame, no punishment—just a fresh start. We're betting on consistency over perfection.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Why "win-only" timeline?</h3>
+          <p>Because staring at red Xs makes you quit. Your brain needs to see progress, not failure. We show only your wins—AI analyzes the rest behind the scenes.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Is this a therapy app?</h3>
+          <p>No. We're a habit tracker for people who need emotional support, not clinical help. If you're struggling with mental health, please see a professional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section id="waitlist">
+    <div class="container">
+      <h2 class="section-title">Stop fighting yourself. Start small.</h2>
+      <p class="waitlist-text">
+        Join 500+ people on the waitlist.<br>
+        Early access opens June 2026.
+      </p>
+      <!-- Tally.so Popup Button -->
+      <div style="text-align: center;">
+        <button 
+          class="cta-button"
+          data-tally-open="YOUR_FORM_ID" 
+          data-tally-emoji-text="👋" 
+          data-tally-emoji-animation="wave">
+          Join Waitlist
+        </button>
+      </div>
+      <p class="trust-badge">🔒 We'll never spam you. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 NightClose. Built with care.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
