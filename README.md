@@ -1,50 +1,53 @@
-# NightClose Landing Page
+# NightClose Landing Pages
 
-> A habit app that doesn't rely on streaks.
+4个A/B测试变体的Landing Page实现。
 
-## 部署状态
+## 技术栈
 
-- **Production**: [待部署]
-- **Platform**: Vercel
-- **Repository**: nightclose-landing
+- **框架**: Next.js 14 (App Router)
+- **样式**: Tailwind CSS
+- **部署**: Vercel
+- **分析**: Vercel Analytics
 
 ## 本地开发
 
 ```bash
-# 直接在浏览器打开
-open index.html
+npm install
+npm run dev
 ```
+
+访问 http://localhost:3000
+
+## 变体路径
+
+- `/a` - Variant A: Pain-First（痛点直击版）✅
+- `/b` - Variant B: Science-First（科学理性版）⏳
+- `/c` - Variant C: Empathy-First（温柔共情版）⏳
+- `/d` - Variant D: Competitive（对标挑衅版）⏳
+
+## 当前状态
+
+✅ **Variant A (Pain-First)** 已完成
+- Hero Section: "Stop starting from Day 1"
+- Problem Section: 3个痛点卡片
+- Cycle Visual: 循环视觉化
+- Solution Section: 3个核心机制
+- Social Proof: 研究数据 + Testimonials
+- Pricing: $4.99/月
+- FAQ: 4个问题（可折叠）
+- Final CTA: Email表单
 
 ## 部署
 
-通过 GitHub 自动部署到 Vercel：
-1. 修改 `index.html`
-2. `git add . && git commit -m "update: xxx"`
-3. `git push`
-4. Vercel 自动检测并部署（30 秒内）
+```bash
+# 推送到GitHub后，Vercel会自动部署
+git push origin main
+```
 
-## 文件说明
+## 下一步
 
-- `index.html` - Landing Page 主文件（单文件，包含所有 CSS/JS）
-- `vercel.json` - Vercel 配置
-- `README.md` - 本文档
-
-## Tally.so 集成
-
-待配置：替换 `index.html` 中的 `YOUR_FORM_ID` 为实际的 Tally 表单 ID。
-
-## 技术栈
-
-- 纯 HTML/CSS/JavaScript
-- Tally.so（表单收集）
-- Vercel（托管）
-
-## 分析工具
-
-待添加：
-- [ ] Plausible Analytics
-- [ ] Vercel Analytics
-
----
-
-Built with care by NightClose Team
+1. 实现 Variant B/C/D
+2. 集成 Vercel Analytics
+3. 集成 Tally.so 或 ConvertKit（Waitlist表单）
+4. SEO优化（meta tags）
+5. 响应式测试
