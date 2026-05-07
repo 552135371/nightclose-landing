@@ -24,7 +24,7 @@ export default function Pricing({ variant }: PricingProps) {
 
   return (
     <section
-      className="px-6 py-28 md:py-40"
+      className="px-6 py-20 md:py-32"
       style={{ background: 'var(--surface)' }}
     >
       <div className="max-w-5xl mx-auto">
@@ -33,7 +33,7 @@ export default function Pricing({ variant }: PricingProps) {
           <h2
             className="serif mb-4"
             style={{
-              fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+              fontSize: 'clamp(2.25rem, 5vw, 4rem)',
               fontWeight: '400',
               letterSpacing: '-0.02em',
               color: 'var(--text-primary)'
@@ -52,7 +52,7 @@ export default function Pricing({ variant }: PricingProps) {
         {/* Pricing card */}
         <div className="max-w-2xl mx-auto">
           <div
-            className="p-10 md:p-12 rounded-3xl relative overflow-hidden"
+            className="p-8 md:p-12 rounded-3xl relative overflow-hidden"
             style={{
               background: 'var(--bg)',
               boxShadow: '0 8px 32px rgba(232, 153, 141, 0.12)',
@@ -85,7 +85,7 @@ export default function Pricing({ variant }: PricingProps) {
                   <span
                     className="serif"
                     style={{
-                      fontSize: 'clamp(4rem, 10vw, 6rem)',
+                      fontSize: 'clamp(3.5rem, 10vw, 5.5rem)',
                       fontWeight: '500',
                       letterSpacing: '-0.03em',
                       color: 'var(--text-primary)'
@@ -141,7 +141,7 @@ export default function Pricing({ variant }: PricingProps) {
 
               {/* CTA */}
               <button
-                className="w-full px-8 py-5 rounded-full font-medium text-lg transition-all duration-300 hover:shadow-xl"
+                className="w-full px-6 py-4 md:px-8 md:py-5 rounded-full font-medium text-lg transition-all duration-300 hover:shadow-xl"
                 style={{
                   background: 'var(--coral)',
                   color: 'white',

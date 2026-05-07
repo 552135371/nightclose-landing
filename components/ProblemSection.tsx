@@ -46,14 +46,14 @@ export default function ProblemSection({ variant }: ProblemSectionProps) {
   const data = content[variant]
 
   return (
-    <section className="px-6 py-28 md:py-40" style={{ background: 'var(--surface)' }}>
+    <section className="px-6 py-20 md:py-32" style={{ background: 'var(--surface)' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Title - elegant serif */}
         <div className="text-center mb-20">
           <h2
             className="serif mb-4"
             style={{
-              fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+              fontSize: 'clamp(2.25rem, 5vw, 4rem)',
               fontWeight: '400',
               letterSpacing: '-0.02em',
               color: 'var(--text-primary)'
@@ -74,7 +74,7 @@ export default function ProblemSection({ variant }: ProblemSectionProps) {
           {data.problems.map((problem, i) => (
             <div
               key={i}
-              className="group p-8 rounded-2xl transition-all duration-500 hover:-translate-y-2"
+              className="group p-6 md:p-8 rounded-2xl transition-all duration-500 hover:-translate-y-1"
               style={{
                 background: 'var(--bg)',
                 boxShadow: '0 4px 24px rgba(232, 153, 141, 0.08)',

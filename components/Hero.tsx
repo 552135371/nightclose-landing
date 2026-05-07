@@ -20,7 +20,7 @@ export default function Hero({ variant }: HeroProps) {
   const data = content[variant]
 
   return (
-    <section className="px-6 pt-20 pb-32 md:pt-32 md:pb-48 relative overflow-hidden">
+    <section className="px-6 pt-16 pb-24 md:pt-28 md:pb-36 relative overflow-hidden">
       {/* Soft gradient background */}
       <div
         className="absolute inset-0 opacity-40"
@@ -29,88 +29,109 @@ export default function Hero({ variant }: HeroProps) {
         }}
       />
 
-      <div className="max-w-5xl mx-auto relative z-10">
-        {/* Eyebrow with accent */}
-        <div className="flex items-center gap-3 mb-8">
-          <div
-            className="w-8 h-px"
-            style={{ background: 'var(--coral)' }}
-          />
-          <p
-            className="text-sm font-medium tracking-wide uppercase"
-            style={{ color: 'var(--coral)' }}
+      <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+        {/* Left Column: Text Content */}
+        <div className="max-w-2xl">
+          {/* Eyebrow with accent */}
+          <div className="flex items-center gap-3 mb-8">
+            <div
+              className="w-8 h-px"
+              style={{ background: 'var(--coral)' }}
+            />
+            <p
+              className="text-sm font-medium tracking-wide uppercase"
+              style={{ color: 'var(--coral)' }}
+            >
+              {data.audience}
+            </p>
+          </div>
+
+          {/* Headline - bold and clear */}
+          <h1
+            className="serif mb-8"
+            style={{
+              fontSize: 'clamp(2.5rem, 6vw + 1rem, 5.5rem)',
+              fontWeight: '400',
+              letterSpacing: '-0.025em',
+              lineHeight: '1.1',
+              color: 'var(--text-primary)'
+            }}
           >
-            {data.audience}
+            {data.headline.split('Day 1').map((part, i, arr) => (
+              i < arr.length - 1 ? (
+                <span key={i}>
+                  {part}
+                  <span style={{
+                    color: 'var(--coral)',
+                    fontWeight: '400'
+                  }}>Day 1</span>
+                </span>
+              ) : part
+            ))}
+          </h1>
+
+          {/* Subheadline - larger and clearer */}
+          <div className="space-y-5 mb-12">
+            {data.subheadline.map((line, i) => (
+              <p
+                key={i}
+                className="text-lg md:text-xl"
+                style={{
+                  color: 'var(--text-secondary)',
+                  lineHeight: '1.6',
+                  fontWeight: '400'
+                }}
+              >
+                {line}
+              </p>
+            ))}
+          </div>
+
+          {/* CTA - elegant button with shadow */}
+          <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
+            <button
+              className="group px-6 py-3.5 md:px-8 md:py-4 rounded-full text-base font-medium transition-all duration-300 w-full sm:w-auto text-center"
+              style={{
+                background: 'var(--coral)',
+                color: 'white',
+                boxShadow: '0 4px 20px rgba(232, 153, 141, 0.3)'
+              }}
+            >
+              <span className="group-hover:tracking-wide transition-all duration-300">
+                {data.cta}
+              </span>
+            </button>
+          </div>
+
+          {/* Caption with soft styling */}
+          <p
+            className="text-sm"
+            style={{
+              color: 'var(--text-muted)',
+              letterSpacing: '0.02em'
+            }}
+          >
+            {data.caption}
           </p>
         </div>
 
-        {/* Headline - bold and clear */}
-        <h1
-          className="serif mb-8 max-w-4xl"
-          style={{
-            fontSize: 'clamp(3rem, 8vw, 6.5rem)',
-            fontWeight: '400',
-            letterSpacing: '-0.025em',
-            lineHeight: '1.05',
-            color: 'var(--text-primary)'
-          }}
-        >
-          {data.headline.split('Day 1').map((part, i, arr) => (
-            i < arr.length - 1 ? (
-              <span key={i}>
-                {part}
-                <span style={{
-                  color: 'var(--coral)',
-                  fontWeight: '400'
-                }}>Day 1</span>
-              </span>
-            ) : part
-          ))}
-        </h1>
-
-        {/* Subheadline - larger and clearer */}
-        <div className="space-y-5 mb-14 max-w-3xl">
-          {data.subheadline.map((line, i) => (
-            <p
-              key={i}
-              className="text-xl md:text-2xl"
-              style={{
-                color: 'var(--text-secondary)',
-                lineHeight: '1.6',
-                fontWeight: '400'
-              }}
-            >
-              {line}
-            </p>
-          ))}
-        </div>
-
-        {/* CTA - elegant button with shadow */}
-        <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
-          <button
-            className="group px-8 py-4 rounded-full text-base font-medium transition-all duration-300"
-            style={{
-              background: 'var(--coral)',
-              color: 'white',
-              boxShadow: '0 4px 20px rgba(232, 153, 141, 0.3)'
+        {/* Right Column: Hero App Screenshot */}
+        <div className="relative mx-auto w-full max-w-[320px] lg:max-w-[360px] mt-12 lg:mt-0">
+          {/* Subtle glow behind the phone */}
+          <div 
+            className="absolute inset-0 blur-3xl opacity-30 rounded-full"
+            style={{ background: 'var(--coral)' }}
+          />
+          <img 
+            src="/start-small.png" 
+            alt="Start with one small thing" 
+            className="relative w-full h-auto rounded-[2.5rem] shadow-2xl border-[6px] transition-transform duration-700 hover:-translate-y-2"
+            style={{ 
+              borderColor: 'var(--warm-50)',
+              boxShadow: '0 20px 40px -10px rgba(232, 153, 141, 0.3)'
             }}
-          >
-            <span className="group-hover:tracking-wide transition-all duration-300">
-              {data.cta}
-            </span>
-          </button>
+          />
         </div>
-
-        {/* Caption with soft styling */}
-        <p
-          className="text-sm"
-          style={{
-            color: 'var(--text-muted)',
-            letterSpacing: '0.02em'
-          }}
-        >
-          {data.caption}
-        </p>
       </div>
     </section>
   )

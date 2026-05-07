@@ -17,7 +17,7 @@ export default function FinalCTA({ variant }: FinalCTAProps) {
 
   return (
     <section
-      className="px-6 py-32 md:py-48 relative overflow-hidden"
+      className="px-6 py-24 md:py-40 relative overflow-hidden"
       style={{
         background: 'linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%)'
       }}
@@ -36,7 +36,7 @@ export default function FinalCTA({ variant }: FinalCTAProps) {
         <h2
           className="serif mb-8"
           style={{
-            fontSize: 'clamp(3rem, 8vw, 6.5rem)',
+            fontSize: 'clamp(2.5rem, 6vw + 1rem, 5.5rem)',
             fontWeight: '400',
             letterSpacing: '-0.025em',
             color: 'white',
@@ -48,7 +48,7 @@ export default function FinalCTA({ variant }: FinalCTAProps) {
 
         {/* Subheadline */}
         <p
-          className="text-2xl md:text-3xl mb-4 max-w-3xl mx-auto"
+          className="text-xl md:text-2xl mb-4 max-w-3xl mx-auto"
           style={{
             color: 'rgba(255, 255, 255, 0.95)',
             lineHeight: '1.5'

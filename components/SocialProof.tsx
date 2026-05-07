@@ -50,11 +50,11 @@ export default function SocialProof({ variant }: SocialProofProps) {
   const data = content[variant]
 
   return (
-    <section className="px-6 py-24 md:py-32" style={{ background: 'var(--bg)' }}>
+    <section className="px-6 py-16 md:py-24" style={{ background: 'var(--bg)' }}>
       <div className="max-w-4xl mx-auto">
         {/* Title - minimal */}
         <h2
-          className="mb-16"
+          className="mb-12 md:mb-16"
           style={{
             fontSize: 'clamp(1.5rem, 3vw, 2rem)',
             fontWeight: '500',
@@ -89,7 +89,7 @@ export default function SocialProof({ variant }: SocialProofProps) {
               >
                 {/* Stat - minimal */}
                 <div
-                  className="text-3xl mb-2"
+                  className="text-2xl md:text-3xl mb-2"
                   style={{
                     color: 'var(--text-primary)',
                     fontWeight: '500'

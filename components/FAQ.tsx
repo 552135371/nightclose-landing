@@ -50,7 +50,7 @@ export default function FAQ({ variant }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="px-6 py-24 md:py-32" style={{ background: 'var(--bg)' }}>
+    <section className="px-6 py-16 md:py-24" style={{ background: 'var(--bg)' }}>
       <div className="max-w-4xl mx-auto">
         {/* Title - minimal */}
         <h2
