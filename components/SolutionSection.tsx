@@ -44,58 +44,88 @@ export default function SolutionSection({ variant }: SolutionSectionProps) {
   const data = content[variant]
 
   return (
-    <section className="px-6 py-24 md:py-32">
-      <div className="max-w-4xl mx-auto">
-        {/* Title - minimal */}
-        <h2
-          className="mb-16"
-          style={{
-            fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-            fontWeight: '500',
-            letterSpacing: '-0.01em',
-            color: 'var(--text-primary)'
-          }}
-        >
-          {data.title}
-        </h2>
+    <section className="px-6 py-28 md:py-40 relative overflow-hidden">
+      {/* Decorative gradient */}
+      <div
+        className="absolute top-0 right-0 w-1/2 h-full opacity-20"
+        style={{
+          background: `radial-gradient(ellipse at top right, var(--peach), transparent 60%)`
+        }}
+      />
 
-        {/* Features - clean cards */}
-        <div className="space-y-6">
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Section Title */}
+        <div className="text-center mb-20">
+          <h2
+            className="serif mb-4"
+            style={{
+              fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+              fontWeight: '300',
+              letterSpacing: '-0.015em',
+              color: 'var(--text-primary)'
+            }}
+          >
+            {data.title}
+          </h2>
+          <div
+            className="w-16 h-1 mx-auto"
+            style={{
+              background: 'linear-gradient(to right, transparent, var(--coral), transparent)'
+            }}
+          />
+        </div>
+
+        {/* Features - elegant stacked cards */}
+        <div className="space-y-8 max-w-4xl mx-auto">
           {data.features.map((feature, i) => (
             <div
               key={i}
-              className="p-8 rounded-xl"
+              className="group p-10 rounded-2xl transition-all duration-500"
               style={{
-                background: 'var(--surface)',
-                border: '1px solid var(--border)'
+                background: i % 2 === 0 ? 'var(--bg)' : 'var(--surface-elevated)',
+                boxShadow: '0 4px 24px rgba(232, 153, 141, 0.08)',
+                border: '1px solid var(--warm-200)'
               }}
             >
-              {/* Title */}
-              <h3
-                className="text-xl mb-4"
-                style={{
-                  color: 'var(--text-primary)',
-                  fontWeight: '500',
-                  lineHeight: '1.3'
-                }}
-              >
-                {feature.title}
-              </h3>
+              <div className="flex flex-col md:flex-row items-start gap-8">
+                {/* Icon */}
+                <div
+                  className="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-3xl"
+                  style={{
+                    background: 'var(--coral-subtle)'
+                  }}
+                >
+                  {feature.icon}
+                </div>
 
-              {/* Content */}
-              <div className="space-y-2">
-                {feature.content.map((line, j) => (
-                  <p
-                    key={j}
-                    className="text-base"
+                <div className="flex-1">
+                  {/* Title */}
+                  <h3
+                    className="serif text-2xl md:text-3xl mb-4"
                     style={{
-                      color: 'var(--text-secondary)',
-                      lineHeight: '1.6'
+                      color: 'var(--text-primary)',
+                      fontWeight: '400',
+                      lineHeight: '1.2'
                     }}
                   >
-                    {line}
-                  </p>
-                ))}
+                    {feature.title}
+                  </h3>
+
+                  {/* Content */}
+                  <div className="space-y-2">
+                    {feature.content.map((line, j) => (
+                      <p
+                        key={j}
+                        className="text-base md:text-lg leading-relaxed"
+                        style={{
+                          color: 'var(--text-secondary)'
+                        }}
+                      >
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           ))}

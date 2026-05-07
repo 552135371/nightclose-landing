@@ -20,36 +20,64 @@ export default function Hero({ variant }: HeroProps) {
   const data = content[variant]
 
   return (
-    <section className="px-6 pt-32 pb-40 md:pt-48 md:pb-56">
-      <div className="max-w-3xl mx-auto">
-        {/* Eyebrow - minimal */}
-        <p className="text-sm mb-8" style={{ color: 'var(--text-muted)' }}>
-          {data.audience}
-        </p>
+    <section className="px-6 pt-20 pb-32 md:pt-32 md:pb-48 relative overflow-hidden">
+      {/* Soft gradient background */}
+      <div
+        className="absolute inset-0 opacity-40"
+        style={{
+          background: `radial-gradient(ellipse at top, var(--coral-subtle), transparent 70%)`
+        }}
+      />
 
-        {/* Headline - restrained, system font */}
+      <div className="max-w-5xl mx-auto relative z-10">
+        {/* Eyebrow with accent */}
+        <div className="flex items-center gap-3 mb-8">
+          <div
+            className="w-8 h-px"
+            style={{ background: 'var(--coral)' }}
+          />
+          <p
+            className="text-sm font-medium tracking-wide uppercase"
+            style={{ color: 'var(--coral)' }}
+          >
+            {data.audience}
+          </p>
+        </div>
+
+        {/* Headline - elegant serif, larger */}
         <h1
-          className="mb-6"
+          className="serif mb-8 max-w-4xl"
           style={{
-            fontSize: 'clamp(2rem, 5vw, 3.25rem)',
-            fontWeight: '500',
-            letterSpacing: '-0.01em',
-            lineHeight: '1.15',
+            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+            fontWeight: '300',
+            letterSpacing: '-0.02em',
+            lineHeight: '1.1',
             color: 'var(--text-primary)'
           }}
         >
-          {data.headline}
+          {data.headline.split('Day 1').map((part, i, arr) => (
+            i < arr.length - 1 ? (
+              <span key={i}>
+                {part}
+                <span style={{
+                  color: 'var(--coral)',
+                  fontWeight: '400'
+                }}>Day 1</span>
+              </span>
+            ) : part
+          ))}
         </h1>
 
-        {/* Subheadline - clean, readable */}
-        <div className="space-y-3 mb-12 max-w-2xl">
+        {/* Subheadline - refined spacing */}
+        <div className="space-y-4 mb-14 max-w-2xl">
           {data.subheadline.map((line, i) => (
             <p
               key={i}
-              className="text-base md:text-lg"
+              className="text-lg md:text-xl"
               style={{
                 color: 'var(--text-secondary)',
-                lineHeight: '1.6'
+                lineHeight: '1.7',
+                fontWeight: '400'
               }}
             >
               {line}
@@ -57,21 +85,30 @@ export default function Hero({ variant }: HeroProps) {
           ))}
         </div>
 
-        {/* CTA - minimal button */}
-        <div className="flex flex-col sm:flex-row items-start gap-4 mb-4">
+        {/* CTA - elegant button with shadow */}
+        <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
           <button
-            className="px-6 py-3 rounded-lg text-base font-medium transition-all duration-200"
+            className="group px-8 py-4 rounded-full text-base font-medium transition-all duration-300"
             style={{
-              background: 'var(--text-primary)',
-              color: 'white'
+              background: 'var(--coral)',
+              color: 'white',
+              boxShadow: '0 4px 20px rgba(232, 153, 141, 0.3)'
             }}
           >
-            {data.cta}
+            <span className="group-hover:tracking-wide transition-all duration-300">
+              {data.cta}
+            </span>
           </button>
         </div>
 
-        {/* Caption */}
-        <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
+        {/* Caption with soft styling */}
+        <p
+          className="text-sm"
+          style={{
+            color: 'var(--text-muted)',
+            letterSpacing: '0.02em'
+          }}
+        >
           {data.caption}
         </p>
       </div>
