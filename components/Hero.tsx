@@ -44,14 +44,14 @@ export default function Hero({ variant }: HeroProps) {
           </p>
         </div>
 
-        {/* Headline - elegant serif, larger */}
+        {/* Headline - bold and clear */}
         <h1
           className="serif mb-8 max-w-4xl"
           style={{
-            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-            fontWeight: '300',
-            letterSpacing: '-0.02em',
-            lineHeight: '1.1',
+            fontSize: 'clamp(3rem, 8vw, 6.5rem)',
+            fontWeight: '400',
+            letterSpacing: '-0.025em',
+            lineHeight: '1.05',
             color: 'var(--text-primary)'
           }}
         >
@@ -68,15 +68,15 @@ export default function Hero({ variant }: HeroProps) {
           ))}
         </h1>
 
-        {/* Subheadline - refined spacing */}
-        <div className="space-y-4 mb-14 max-w-2xl">
+        {/* Subheadline - larger and clearer */}
+        <div className="space-y-5 mb-14 max-w-3xl">
           {data.subheadline.map((line, i) => (
             <p
               key={i}
-              className="text-lg md:text-xl"
+              className="text-xl md:text-2xl"
               style={{
                 color: 'var(--text-secondary)',
-                lineHeight: '1.7',
+                lineHeight: '1.6',
                 fontWeight: '400'
               }}
             >

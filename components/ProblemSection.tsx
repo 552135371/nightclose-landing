@@ -53,9 +53,9 @@ export default function ProblemSection({ variant }: ProblemSectionProps) {
           <h2
             className="serif mb-4"
             style={{
-              fontSize: 'clamp(2rem, 4vw, 3.5rem)',
-              fontWeight: '300',
-              letterSpacing: '-0.015em',
+              fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+              fontWeight: '400',
+              letterSpacing: '-0.02em',
               color: 'var(--text-primary)'
             }}
           >
@@ -96,11 +96,12 @@ export default function ProblemSection({ variant }: ProblemSectionProps) {
 
               {/* Title */}
               <h3
-                className="serif text-2xl mb-4"
+                className="serif text-2xl md:text-3xl mb-5"
                 style={{
                   color: 'var(--text-primary)',
-                  fontWeight: '400',
-                  lineHeight: '1.3'
+                  fontWeight: '500',
+                  lineHeight: '1.25',
+                  letterSpacing: '-0.01em'
                 }}
               >
                 {problem.title}
@@ -111,7 +112,7 @@ export default function ProblemSection({ variant }: ProblemSectionProps) {
                 {problem.content.map((line, j) => (
                   <p
                     key={j}
-                    className="text-base leading-relaxed"
+                    className="text-base md:text-lg leading-relaxed"
                     style={{
                       color: 'var(--text-secondary)'
                     }}

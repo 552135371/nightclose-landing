@@ -33,9 +33,9 @@ export default function Pricing({ variant }: PricingProps) {
           <h2
             className="serif mb-4"
             style={{
-              fontSize: 'clamp(2rem, 4vw, 3.5rem)',
-              fontWeight: '300',
-              letterSpacing: '-0.015em',
+              fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+              fontWeight: '400',
+              letterSpacing: '-0.02em',
               color: 'var(--text-primary)'
             }}
           >
@@ -85,16 +85,16 @@ export default function Pricing({ variant }: PricingProps) {
                   <span
                     className="serif"
                     style={{
-                      fontSize: 'clamp(3rem, 8vw, 5rem)',
-                      fontWeight: '300',
-                      letterSpacing: '-0.02em',
+                      fontSize: 'clamp(4rem, 10vw, 6rem)',
+                      fontWeight: '500',
+                      letterSpacing: '-0.03em',
                       color: 'var(--text-primary)'
                     }}
                   >
                     {data.price}
                   </span>
                   <span
-                    className="text-xl"
+                    className="text-2xl"
                     style={{ color: 'var(--text-muted)' }}
                   >
                     / {data.period}
@@ -130,7 +130,7 @@ export default function Pricing({ variant }: PricingProps) {
                     </div>
 
                     <span
-                      className="text-base md:text-lg"
+                      className="text-lg md:text-xl"
                       style={{ color: 'var(--text-secondary)' }}
                     >
                       {feature}

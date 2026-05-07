@@ -59,9 +59,9 @@ export default function SolutionSection({ variant }: SolutionSectionProps) {
           <h2
             className="serif mb-4"
             style={{
-              fontSize: 'clamp(2rem, 4vw, 3.5rem)',
-              fontWeight: '300',
-              letterSpacing: '-0.015em',
+              fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+              fontWeight: '400',
+              letterSpacing: '-0.02em',
               color: 'var(--text-primary)'
             }}
           >
@@ -101,22 +101,23 @@ export default function SolutionSection({ variant }: SolutionSectionProps) {
                 <div className="flex-1">
                   {/* Title */}
                   <h3
-                    className="serif text-2xl md:text-3xl mb-4"
+                    className="serif text-3xl md:text-4xl mb-5"
                     style={{
                       color: 'var(--text-primary)',
-                      fontWeight: '400',
-                      lineHeight: '1.2'
+                      fontWeight: '500',
+                      lineHeight: '1.2',
+                      letterSpacing: '-0.015em'
                     }}
                   >
                     {feature.title}
                   </h3>
 
                   {/* Content */}
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     {feature.content.map((line, j) => (
                       <p
                         key={j}
-                        className="text-base md:text-lg leading-relaxed"
+                        className="text-lg md:text-xl leading-relaxed"
                         style={{
                           color: 'var(--text-secondary)'
                         }}

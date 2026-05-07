@@ -34,11 +34,11 @@ export default function FinalCTA({ variant }: FinalCTAProps) {
       <div className="max-w-4xl mx-auto relative z-10 text-center">
         {/* Headline */}
         <h2
-          className="serif mb-6"
+          className="serif mb-8"
           style={{
-            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-            fontWeight: '300',
-            letterSpacing: '-0.02em',
+            fontSize: 'clamp(3rem, 8vw, 6.5rem)',
+            fontWeight: '400',
+            letterSpacing: '-0.025em',
             color: 'white',
             textShadow: '0 2px 20px rgba(0,0,0,0.1)'
           }}
@@ -48,10 +48,10 @@ export default function FinalCTA({ variant }: FinalCTAProps) {
 
         {/* Subheadline */}
         <p
-          className="text-xl md:text-2xl mb-3 max-w-2xl mx-auto"
+          className="text-2xl md:text-3xl mb-4 max-w-3xl mx-auto"
           style={{
             color: 'rgba(255, 255, 255, 0.95)',
-            lineHeight: '1.6'
+            lineHeight: '1.5'
           }}
         >
           {data.subheadline}
