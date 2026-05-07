@@ -11,7 +11,7 @@ export default function VariantA() {
   const variant = 'a'
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <main className="min-h-screen">
       <Hero variant={variant} />
       <ProblemSection variant={variant} />
       <CycleVisual />

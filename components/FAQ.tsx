@@ -50,30 +50,103 @@ export default function FAQ({ variant }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="px-6 py-20 bg-slate-50">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 text-center mb-12">
-          FAQ
+    <section className="px-6 py-20 md:py-32" style={{ background: 'var(--bg)' }}>
+      <div className="max-w-4xl mx-auto">
+        {/* Title */}
+        <h2
+          className="font-bold mb-16 leading-tight"
+          style={{
+            fontSize: 'clamp(2rem, 4vw, 3rem)',
+            letterSpacing: '-0.02em',
+            color: 'var(--text-primary)'
+          }}
+        >
+          Questions
         </h2>
 
-        <div className="space-y-4">
+        {/* FAQ Items */}
+        <div className="space-y-px">
           {data.items.map((item, i) => (
-            <div key={i} className="bg-white rounded-xl border border-slate-200 overflow-hidden">
+            <div
+              key={i}
+              className="group"
+              style={{
+                background: 'var(--surface)',
+                borderBottom: `1px solid var(--border)`
+              }}
+            >
+              {/* Question Button */}
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full text-left px-6 py-4 font-semibold text-slate-900 hover:bg-slate-50 transition-colors flex justify-between items-center"
+                className="w-full text-left px-6 md:px-8 py-6 md:py-8 flex justify-between items-start gap-6 hover:bg-opacity-50 transition-all duration-300"
               >
-                <span>{item.q}</span>
-                <span className="text-2xl">{openIndex === i ? '−' : '+'}</span>
+                <span
+                  className="text-lg md:text-xl font-semibold"
+                  style={{ color: 'var(--text-primary)' }}
+                >
+                  {item.q}
+                </span>
+
+                {/* Plus/Minus Icon */}
+                <div
+                  className="w-6 h-6 flex items-center justify-center flex-shrink-0 transition-transform duration-300"
+                  style={{
+                    transform: openIndex === i ? 'rotate(180deg)' : 'rotate(0deg)'
+                  }}
+                >
+                  <svg
+                    className="w-full h-full"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style={{ color: 'var(--text-muted)' }}
+                  >
+                    {openIndex === i ? (
+                      <path
+                        d="M5 12H19"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                      />
+                    ) : (
+                      <>
+                        <path
+                          d="M12 5V19"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
+                        <path
+                          d="M5 12H19"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
+                      </>
+                    )}
+                  </svg>
+                </div>
               </button>
 
-              {openIndex === i && (
-                <div className="px-6 pb-4 text-slate-600 space-y-2">
-                  {item.a.map((line, j) => (
-                    <p key={j}>{line}</p>
-                  ))}
+              {/* Answer */}
+              <div
+                className="grid-rows-animate overflow-hidden"
+                style={{
+                  gridTemplateRows: openIndex === i ? '1fr' : '0fr'
+                }}
+              >
+                <div className="overflow-hidden">
+                  <div className="px-6 md:px-8 pb-6 md:pb-8">
+                    <div
+                      className="serif space-y-3 text-base md:text-lg"
+                      style={{ color: 'var(--text-secondary)' }}
+                    >
+                      {item.a.map((line, j) => (
+                        line === '' ? <br key={j} /> : <p key={j}>{line}</p>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>

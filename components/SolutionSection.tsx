@@ -44,26 +44,65 @@ export default function SolutionSection({ variant }: SolutionSectionProps) {
   const data = content[variant]
 
   return (
-    <section className="px-6 py-20 bg-white">
+    <section className="px-6 py-20 md:py-32" style={{ background: 'var(--surface)' }}>
       <div className="max-w-6xl mx-auto">
         {/* Title */}
-        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 text-center mb-16">
-          {data.title}
-        </h2>
+        <div className="max-w-3xl mb-20">
+          <h2
+            className="font-bold mb-6 leading-tight"
+            style={{
+              fontSize: 'clamp(2rem, 5vw, 4rem)',
+              letterSpacing: '-0.02em',
+              color: 'var(--text-primary)'
+            }}
+          >
+            {data.title}
+          </h2>
+        </div>
 
-        {/* Features */}
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Features - Staggered layout */}
+        <div className="space-y-16 md:space-y-20">
           {data.features.map((feature, i) => (
-            <div key={i} className="bg-slate-50 p-8 rounded-2xl border border-slate-200">
-              <div className="text-4xl mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">{feature.title}</h3>
-              <div className="space-y-2 text-slate-600">
-                {feature.content.map((line, j) => (
-                  <p key={j}>{line}</p>
-                ))}
+            <article
+              key={i}
+              className={`grid md:grid-cols-12 gap-8 md:gap-12 items-start ${
+                i % 2 === 1 ? 'md:flex-row-reverse' : ''
+              }`}
+            >
+              {/* Icon + Title */}
+              <div className={`md:col-span-5 ${i % 2 === 1 ? 'md:col-start-8' : ''}`}>
+                {/* Icon - larger, more distinctive */}
+                <div className="text-6xl mb-6 leading-none">{feature.icon}</div>
+
+                <h3
+                  className="text-2xl md:text-3xl font-semibold"
+                  style={{
+                    color: 'var(--text-primary)',
+                    letterSpacing: '-0.01em'
+                  }}
+                >
+                  {feature.title}
+                </h3>
               </div>
-            </div>
+
+              {/* Content */}
+              <div className={`md:col-span-7 ${i % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}`}>
+                <div className="serif space-y-3 text-lg" style={{ color: 'var(--text-secondary)' }}>
+                  {feature.content.map((line, j) => (
+                    <p key={j}>{line}</p>
+                  ))}
+                </div>
+              </div>
+            </article>
           ))}
+        </div>
+
+        {/* Decorative accent */}
+        <div className="mt-20 flex justify-end">
+          <div
+            className="w-32 h-px"
+            style={{ background: 'var(--accent)' }}
+          />
         </div>
       </div>
     </section>
