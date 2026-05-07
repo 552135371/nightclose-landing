@@ -50,40 +50,49 @@ export default function SocialProof({ variant }: SocialProofProps) {
   const data = content[variant]
 
   return (
-    <section className="px-6 py-20 md:py-32" style={{ background: 'var(--bg)' }}>
-      <div className="max-w-6xl mx-auto">
-        {/* Title */}
-        <div className="max-w-3xl mb-20">
-          <h2
-            className="font-bold mb-6 leading-tight"
-            style={{
-              fontSize: 'clamp(2rem, 5vw, 4rem)',
-              letterSpacing: '-0.02em',
-              color: 'var(--text-primary)'
-            }}
-          >
-            {data.title}
-          </h2>
-        </div>
+    <section className="px-6 py-24 md:py-32" style={{ background: 'var(--bg)' }}>
+      <div className="max-w-4xl mx-auto">
+        {/* Title - minimal */}
+        <h2
+          className="mb-16"
+          style={{
+            fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+            fontWeight: '500',
+            letterSpacing: '-0.01em',
+            color: 'var(--text-primary)'
+          }}
+        >
+          {data.title}
+        </h2>
 
-        {/* Research - Grid layout */}
-        <div className="mb-24">
+        {/* Research - Simple cards */}
+        <div className="mb-20">
           <h3
-            className="text-xl md:text-2xl font-semibold mb-12"
-            style={{ color: 'var(--text-primary)' }}
+            className="text-lg mb-8"
+            style={{
+              color: 'var(--text-primary)',
+              fontWeight: '500'
+            }}
           >
             {data.research.title}
           </h3>
 
-          <div className="grid md:grid-cols-3 gap-12 mb-12">
+          <div className="space-y-6 mb-8">
             {data.research.points.map((point, i) => (
-              <div key={i}>
-                {/* Stat */}
+              <div
+                key={i}
+                className="p-6 rounded-lg"
+                style={{
+                  background: 'var(--surface)',
+                  border: '1px solid var(--border)'
+                }}
+              >
+                {/* Stat - minimal */}
                 <div
-                  className="text-5xl md:text-6xl font-bold mb-4"
+                  className="text-3xl mb-2"
                   style={{
-                    color: 'var(--accent)',
-                    letterSpacing: '-0.02em'
+                    color: 'var(--text-primary)',
+                    fontWeight: '500'
                   }}
                 >
                   {point.stat}
@@ -91,8 +100,11 @@ export default function SocialProof({ variant }: SocialProofProps) {
 
                 {/* Description */}
                 <p
-                  className="serif text-lg mb-3"
-                  style={{ color: 'var(--text-secondary)' }}
+                  className="text-base mb-2"
+                  style={{
+                    color: 'var(--text-secondary)',
+                    lineHeight: '1.6'
+                  }}
                 >
                   {point.text}
                 </p>
@@ -110,36 +122,47 @@ export default function SocialProof({ variant }: SocialProofProps) {
 
           {/* Footer */}
           <p
-            className="text-lg font-medium max-w-2xl"
-            style={{ color: 'var(--text-primary)' }}
+            className="text-base"
+            style={{
+              color: 'var(--text-primary)',
+              fontWeight: '500'
+            }}
           >
             {data.research.footer}
           </p>
         </div>
 
-        {/* Testimonials - Masonry-style */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Testimonials - Simple stacked */}
+        <div className="space-y-6">
           {data.testimonials.map((testimonial, i) => (
             <blockquote
               key={i}
-              className="relative"
+              className="p-6 rounded-lg"
               style={{
-                paddingTop: i % 3 === 1 ? '3rem' : '0'
+                background: 'var(--surface)',
+                border: '1px solid var(--border)'
               }}
             >
               {/* Quote */}
               <p
-                className="serif-italic text-lg mb-6 leading-relaxed"
-                style={{ color: 'var(--text-secondary)' }}
+                className="text-base mb-4"
+                style={{
+                  color: 'var(--text-secondary)',
+                  lineHeight: '1.6',
+                  fontStyle: 'italic'
+                }}
               >
                 "{testimonial.quote}"
               </p>
 
               {/* Attribution */}
-              <footer>
+              <footer className="flex items-baseline gap-2">
                 <div
-                  className="font-medium"
-                  style={{ color: 'var(--text-primary)' }}
+                  className="text-sm"
+                  style={{
+                    color: 'var(--text-primary)',
+                    fontWeight: '500'
+                  }}
                 >
                   {testimonial.author}
                 </div>
@@ -147,17 +170,9 @@ export default function SocialProof({ variant }: SocialProofProps) {
                   className="text-sm"
                   style={{ color: 'var(--text-muted)' }}
                 >
-                  {testimonial.location}
+                  · {testimonial.location}
                 </div>
               </footer>
-
-              {/* Decorative quote mark */}
-              <div
-                className="absolute -top-2 -left-2 text-6xl opacity-10 select-none"
-                style={{ color: 'var(--accent)' }}
-              >
-                "
-              </div>
             </blockquote>
           ))}
         </div>

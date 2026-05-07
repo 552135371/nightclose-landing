@@ -46,79 +46,83 @@ export default function ProblemSection({ variant }: ProblemSectionProps) {
   const data = content[variant]
 
   return (
-    <section className="px-6 py-20 md:py-32" style={{ background: 'var(--surface)' }}>
-      <div className="max-w-6xl mx-auto">
-        {/* Section Title - Editorial style */}
-        <div className="max-w-3xl mb-20">
-          <h2
-            className="font-bold mb-6 leading-tight"
-            style={{
-              fontSize: 'clamp(2rem, 5vw, 4rem)',
-              letterSpacing: '-0.02em',
-              color: 'var(--text-primary)'
-            }}
-          >
-            {data.title}
-          </h2>
-          <div
-            className="w-16 h-px"
-            style={{ background: 'var(--accent)' }}
-          />
-        </div>
+    <section className="px-6 py-24 md:py-32" style={{ background: 'var(--surface)' }}>
+      <div className="max-w-4xl mx-auto">
+        {/* Section Title - minimal */}
+        <h2
+          className="mb-16"
+          style={{
+            fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+            fontWeight: '500',
+            letterSpacing: '-0.01em',
+            color: 'var(--text-primary)'
+          }}
+        >
+          {data.title}
+        </h2>
 
-        {/* Problems - Magazine-style layout */}
-        <div className="space-y-20 md:space-y-32">
+        {/* Problems - clean cards */}
+        <div className="space-y-6">
           {data.problems.map((problem, i) => (
-            <article key={i} className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
-              {/* Number + Title */}
-              <div className="md:col-span-5">
-                <span
-                  className="text-6xl md:text-7xl font-bold block mb-4"
-                  style={{
-                    color: 'var(--accent-subtle)',
-                    letterSpacing: '-0.04em'
-                  }}
-                >
-                  {problem.number}
-                </span>
-                <h3
-                  className="text-2xl md:text-3xl font-semibold mb-6"
-                  style={{
-                    color: 'var(--text-primary)',
-                    letterSpacing: '-0.01em'
-                  }}
-                >
-                  {problem.title}
-                </h3>
-
-                {/* Stat callout if exists */}
-                {problem.stat && (
-                  <div className="mt-8 pt-6" style={{ borderTop: `1px solid var(--border)` }}>
-                    <div
-                      className="text-4xl font-bold mb-1"
-                      style={{ color: 'var(--accent)' }}
-                    >
-                      {problem.stat.value}
-                    </div>
-                    <div
-                      className="serif-italic text-sm"
-                      style={{ color: 'var(--text-muted)' }}
-                    >
-                      {problem.stat.label}
-                    </div>
-                  </div>
-                )}
-              </div>
+            <div
+              key={i}
+              className="p-8 rounded-xl"
+              style={{
+                background: 'var(--bg)',
+                border: '1px solid var(--border)'
+              }}
+            >
+              {/* Title */}
+              <h3
+                className="text-xl mb-4"
+                style={{
+                  color: 'var(--text-primary)',
+                  fontWeight: '500',
+                  lineHeight: '1.3'
+                }}
+              >
+                {problem.title}
+              </h3>
 
               {/* Content */}
-              <div className="md:col-span-7">
-                <div className="serif space-y-4 text-lg" style={{ color: 'var(--text-secondary)' }}>
-                  {problem.content.map((line, j) => (
-                    <p key={j}>{line}</p>
-                  ))}
-                </div>
+              <div className="space-y-3 mb-6">
+                {problem.content.map((line, j) => (
+                  <p
+                    key={j}
+                    className="text-base"
+                    style={{
+                      color: 'var(--text-secondary)',
+                      lineHeight: '1.6'
+                    }}
+                  >
+                    {line}
+                  </p>
+                ))}
               </div>
-            </article>
+
+              {/* Stat - minimal */}
+              {problem.stat && (
+                <div className="pt-6" style={{ borderTop: '1px solid var(--border)' }}>
+                  <div
+                    className="text-2xl mb-1"
+                    style={{
+                      color: 'var(--text-primary)',
+                      fontWeight: '500'
+                    }}
+                  >
+                    {problem.stat.value}
+                  </div>
+                  <p
+                    className="text-sm"
+                    style={{
+                      color: 'var(--text-muted)'
+                    }}
+                  >
+                    {problem.stat.label}
+                  </p>
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </div>

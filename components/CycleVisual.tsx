@@ -6,81 +6,54 @@ export default function CycleVisual() {
   ]
 
   return (
-    <section className="px-6 py-20 md:py-32 relative overflow-hidden">
-      {/* Background gradient */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: `linear-gradient(to bottom, var(--surface), var(--stone-100))`
-        }}
-      />
-
-      <div className="max-w-5xl mx-auto relative z-10">
-        {/* Title */}
+    <section className="px-6 py-24 md:py-32" style={{ background: 'var(--surface)' }}>
+      <div className="max-w-4xl mx-auto">
+        {/* Title - minimal */}
         <p
-          className="text-xl md:text-2xl font-semibold mb-12 max-w-2xl"
-          style={{ color: 'var(--text-primary)' }}
+          className="text-lg mb-12"
+          style={{
+            color: 'var(--text-primary)',
+            fontWeight: '500'
+          }}
         >
           The Cycle You're Stuck In:
         </p>
 
-        {/* Cycles - Vertical flow with arrows */}
-        <div className="space-y-12">
+        {/* Cycles - Simple vertical flow */}
+        <div className="space-y-8">
           {cycles.map((cycle, i) => (
-            <div key={i} className="relative">
+            <div key={i}>
               {/* Cycle flow */}
-              <div className="flex flex-wrap items-center gap-3 md:gap-4">
+              <div className="flex flex-wrap items-center gap-2 md:gap-3">
                 {cycle.steps.map((step, j) => (
                   <div key={j} className="flex items-center">
-                    {/* Step */}
+                    {/* Step - minimal pills */}
                     <div
-                      className={`px-4 py-2 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
-                        step === 'Back to Day 1' || step === '...'
-                          ? 'font-semibold'
-                          : ''
-                      }`}
+                      className="px-4 py-2 rounded-lg text-sm font-medium"
                       style={{
                         background: step === 'Back to Day 1'
-                          ? 'var(--accent-subtle)'
-                          : step === 'Miss one day' || step === '"I\'ll start Monday"'
-                          ? 'var(--stone-200)'
-                          : 'var(--surface)',
-                        color: step === 'Back to Day 1'
-                          ? 'var(--accent)'
-                          : 'var(--text-secondary)',
-                        border: `1px solid ${step === 'Back to Day 1' ? 'var(--accent)' : 'var(--border)'}`
+                          ? 'var(--gray-200)'
+                          : 'var(--bg)',
+                        color: 'var(--text-secondary)',
+                        border: `1px solid var(--border)`
                       }}
                     >
                       {step}
                     </div>
 
-                    {/* Arrow */}
+                    {/* Arrow - simple */}
                     {j < cycle.steps.length - 1 && (
-                      <svg
-                        className="w-4 h-4 mx-2 flex-shrink-0"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        style={{ color: 'var(--text-muted)' }}
-                      >
-                        <path
-                          d="M6 4L10 8L6 12"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                      <span className="mx-2 text-sm" style={{ color: 'var(--text-muted)' }}>
+                        →
+                      </span>
                     )}
                   </div>
                 ))}
               </div>
 
-              {/* Connecting line to next cycle */}
+              {/* Connecting line */}
               {i < cycles.length - 1 && (
-                <div
-                  className="w-px h-8 ml-8 my-4"
-                  style={{ background: 'var(--border)' }}
-                />
+                <div className="w-px h-6 ml-6 my-3" style={{ background: 'var(--border)' }} />
               )}
             </div>
           ))}
@@ -88,8 +61,11 @@ export default function CycleVisual() {
 
         {/* Question */}
         <p
-          className="serif-italic text-xl md:text-2xl mt-16 max-w-xl"
-          style={{ color: 'var(--text-secondary)' }}
+          className="text-lg mt-12"
+          style={{
+            color: 'var(--text-secondary)',
+            fontStyle: 'italic'
+          }}
         >
           Sound familiar?
         </p>

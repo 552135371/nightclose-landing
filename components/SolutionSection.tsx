@@ -44,65 +44,61 @@ export default function SolutionSection({ variant }: SolutionSectionProps) {
   const data = content[variant]
 
   return (
-    <section className="px-6 py-20 md:py-32" style={{ background: 'var(--surface)' }}>
-      <div className="max-w-6xl mx-auto">
-        {/* Title */}
-        <div className="max-w-3xl mb-20">
-          <h2
-            className="font-bold mb-6 leading-tight"
-            style={{
-              fontSize: 'clamp(2rem, 5vw, 4rem)',
-              letterSpacing: '-0.02em',
-              color: 'var(--text-primary)'
-            }}
-          >
-            {data.title}
-          </h2>
-        </div>
+    <section className="px-6 py-24 md:py-32">
+      <div className="max-w-4xl mx-auto">
+        {/* Title - minimal */}
+        <h2
+          className="mb-16"
+          style={{
+            fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+            fontWeight: '500',
+            letterSpacing: '-0.01em',
+            color: 'var(--text-primary)'
+          }}
+        >
+          {data.title}
+        </h2>
 
-        {/* Features - Staggered layout */}
-        <div className="space-y-16 md:space-y-20">
+        {/* Features - clean cards */}
+        <div className="space-y-6">
           {data.features.map((feature, i) => (
-            <article
+            <div
               key={i}
-              className={`grid md:grid-cols-12 gap-8 md:gap-12 items-start ${
-                i % 2 === 1 ? 'md:flex-row-reverse' : ''
-              }`}
+              className="p-8 rounded-xl"
+              style={{
+                background: 'var(--surface)',
+                border: '1px solid var(--border)'
+              }}
             >
-              {/* Icon + Title */}
-              <div className={`md:col-span-5 ${i % 2 === 1 ? 'md:col-start-8' : ''}`}>
-                {/* Icon - larger, more distinctive */}
-                <div className="text-6xl mb-6 leading-none">{feature.icon}</div>
-
-                <h3
-                  className="text-2xl md:text-3xl font-semibold"
-                  style={{
-                    color: 'var(--text-primary)',
-                    letterSpacing: '-0.01em'
-                  }}
-                >
-                  {feature.title}
-                </h3>
-              </div>
+              {/* Title */}
+              <h3
+                className="text-xl mb-4"
+                style={{
+                  color: 'var(--text-primary)',
+                  fontWeight: '500',
+                  lineHeight: '1.3'
+                }}
+              >
+                {feature.title}
+              </h3>
 
               {/* Content */}
-              <div className={`md:col-span-7 ${i % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}`}>
-                <div className="serif space-y-3 text-lg" style={{ color: 'var(--text-secondary)' }}>
-                  {feature.content.map((line, j) => (
-                    <p key={j}>{line}</p>
-                  ))}
-                </div>
+              <div className="space-y-2">
+                {feature.content.map((line, j) => (
+                  <p
+                    key={j}
+                    className="text-base"
+                    style={{
+                      color: 'var(--text-secondary)',
+                      lineHeight: '1.6'
+                    }}
+                  >
+                    {line}
+                  </p>
+                ))}
               </div>
-            </article>
+            </div>
           ))}
-        </div>
-
-        {/* Decorative accent */}
-        <div className="mt-20 flex justify-end">
-          <div
-            className="w-32 h-px"
-            style={{ background: 'var(--accent)' }}
-          />
         </div>
       </div>
     </section>

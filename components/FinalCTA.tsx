@@ -17,99 +17,77 @@ export default function FinalCTA({ variant }: FinalCTAProps) {
 
   return (
     <section
-      className="px-6 py-24 md:py-32 relative overflow-hidden"
+      className="px-6 py-32 md:py-40"
       style={{
-        background: 'var(--text-primary)'
+        background: 'var(--gray-900)'
       }}
     >
-      {/* Subtle gradient overlay */}
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          background: `radial-gradient(circle at 30% 50%, var(--accent), transparent 70%)`
-        }}
-      />
+      <div className="max-w-3xl mx-auto">
+        {/* Headline - restrained */}
+        <h2
+          className="mb-4"
+          style={{
+            fontSize: 'clamp(2rem, 5vw, 3rem)',
+            fontWeight: '500',
+            letterSpacing: '-0.01em',
+            color: 'white'
+          }}
+        >
+          {data.headline}
+        </h2>
 
-      <div className="max-w-5xl mx-auto relative z-10">
-        {/* Content */}
-        <div className="max-w-3xl">
-          {/* Headline */}
-          <h2
-            className="font-bold mb-6 leading-tight"
-            style={{
-              fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-              letterSpacing: '-0.03em',
-              color: 'var(--surface)'
-            }}
-          >
-            {data.headline}
-          </h2>
+        {/* Subheadline */}
+        <p
+          className="text-lg mb-2"
+          style={{
+            color: 'rgba(255, 255, 255, 0.7)'
+          }}
+        >
+          {data.subheadline}
+        </p>
 
-          {/* Subheadline */}
-          <p
-            className="serif text-xl md:text-2xl mb-2"
-            style={{
-              color: 'var(--stone-300)',
-              opacity: 0.9
-            }}
-          >
-            {data.subheadline}
-          </p>
+        <p
+          className="text-base mb-12"
+          style={{
+            color: 'rgba(255, 255, 255, 0.5)'
+          }}
+        >
+          {data.caption}
+        </p>
 
-          <p
-            className="text-base mb-12"
-            style={{
-              color: 'var(--stone-400)'
-            }}
-          >
-            {data.caption}
-          </p>
-
-          {/* Email Form */}
-          <div className="max-w-xl">
-            <div className="flex flex-col sm:flex-row gap-3 mb-4">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-6 py-4 rounded-full text-base font-medium focus:outline-none focus:ring-2 transition-all duration-300"
-                style={{
-                  background: 'var(--surface)',
-                  color: 'var(--text-primary)',
-                  border: 'none'
-                }}
-              />
-              <button
-                className="px-8 py-4 rounded-full font-medium text-base whitespace-nowrap transition-all duration-300 hover:scale-105"
-                style={{
-                  background: 'var(--accent)',
-                  color: 'var(--text-primary)'
-                }}
-              >
-                {data.cta} →
-              </button>
-            </div>
-
-            {/* Trust Badge */}
-            <p
-              className="text-sm"
+        {/* Email Form - minimal */}
+        <div className="max-w-xl">
+          <div className="flex flex-col sm:flex-row gap-3 mb-3">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="flex-1 px-5 py-3 rounded-lg text-base focus:outline-none focus:ring-2 transition-all duration-200"
               style={{
-                color: 'var(--stone-500)'
+                background: 'white',
+                color: 'var(--text-primary)',
+                border: 'none'
+              }}
+            />
+            <button
+              className="px-6 py-3 rounded-lg font-medium text-base whitespace-nowrap transition-all duration-200"
+              style={{
+                background: 'white',
+                color: 'var(--text-primary)'
               }}
             >
-              <svg
-                className="inline w-3 h-3 mr-1"
-                viewBox="0 0 12 12"
-                fill="none"
-              >
-                <path
-                  d="M6 1L7.5 4.5L11 5L8.5 7.5L9 11L6 9L3 11L3.5 7.5L1 5L4.5 4.5L6 1Z"
-                  fill="currentColor"
-                  opacity="0.5"
-                />
-              </svg>
-              {data.trustBadge}
-            </p>
+              {data.cta}
+            </button>
           </div>
+
+          {/* Trust Badge */}
+          <p
+            className="text-sm"
+            style={{
+              color: 'rgba(255, 255, 255, 0.5)'
+            }}
+          >
+            {data.trustBadge}
+          </p>
         </div>
       </div>
     </section>

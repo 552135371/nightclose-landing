@@ -2,58 +2,55 @@
 
 ## Design Direction
 
-**Aesthetic**: Editorial Minimalism with Emotional Warmth
+**Aesthetic**: Restrained Minimalism with Quiet Warmth
 
 **Core Principles**:
-- **Restrained yet warm**: Not cold, clinical minimalism—emotional warmth through tinted colors and serif typography
-- **Magazine/editorial layout**: Asymmetric compositions, generous whitespace, flowing reading rhythm
-- **Intentional typography**: Distinctive font pairing, clear hierarchy, fluid sizing
-- **Purposeful details**: Every element earns its place—no decoration for decoration's sake
+- **Restrained yet warm**: Minimal but not cold—quiet warmth through careful color choices and generous spacing
+- **Clean layout**: Simple, readable layouts with ample whitespace
+- **System typography**: Native system fonts for familiarity and performance
+- **Purposeful simplicity**: Every element serves a clear function—no decoration for decoration's sake
 
 ---
 
 ## Typography
 
-### Font Pairing
+### Font Stack
 
-**Display Font**: Space Grotesk
-- Geometric sans-serif with character
-- Weights: 300 (light), 400 (regular), 500 (medium), 600 (semibold), 700 (bold)
-- Used for: Headlines, UI elements, navigation
-- Features: `font-feature-settings: 'ss01', 'ss02'` for stylistic alternates
+**System Fonts Only**:
+- `-apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", system-ui, sans-serif`
+- Native to each platform for optimal performance and familiarity
+- No custom font loading = instant text rendering
 
-**Body Font**: Newsreader (Serif)
-- Variable font with optical sizing (6-72pt)
-- Weights: 300 (light), 400 (regular), 500 (medium)
-- Used for: Body copy, testimonials, subheadlines
-- Emotional warmth and readability
-
-**Why not Inter/Roboto/System fonts?**
-- Overused in 2024-2025 AI interfaces
-- Space Grotesk + Newsreader creates distinctive, memorable typography
-- Serif for body adds warmth without feeling corporate
+**Why System Fonts?**
+- Zero loading time—instant render
+- Familiar to users on their platform
+- Respects user's accessibility settings
+- Aligns with Things 3, Notion's restrained aesthetic
 
 ### Type Scale
 
-Fluid sizing with `clamp()` for responsive typography:
+Restrained sizing with `clamp()` for responsive typography:
 
 ```css
 /* Headlines */
---text-7xl: clamp(3.5rem, 7vw, 6rem)    /* 56px-96px */
---text-6xl: clamp(3rem, 6vw, 5rem)      /* 48px-80px */
---text-5xl: clamp(2.5rem, 5vw, 4rem)    /* 40px-64px */
+--text-3xl: clamp(2rem, 5vw, 3.25rem)    /* 32px-52px */
+--text-2xl: clamp(1.5rem, 3vw, 2rem)     /* 24px-32px */
+--text-xl: clamp(1.125rem, 2vw, 1.25rem) /* 18px-20px */
 
 /* Body */
---text-lg: clamp(1.125rem, 2vw, 1.25rem) /* 18px-20px */
+--text-base: 16px
+--text-sm: 14px
 ```
 
 ### Hierarchy
 
-1. **Hero Headline**: 7xl, Space Grotesk Bold, -0.03em tracking
-2. **Section Headlines**: 5xl, Space Grotesk Semibold, -0.02em tracking
-3. **Subheadlines**: 2xl, Newsreader Regular, -0.01em tracking
-4. **Body**: lg, Newsreader Regular, normal tracking
-5. **Captions**: sm, Space Grotesk Regular, normal tracking
+1. **Hero Headline**: 3xl, Medium (500), -0.01em tracking
+2. **Section Headlines**: 2xl, Medium (500), -0.01em tracking
+3. **Card Titles**: xl, Medium (500), normal tracking
+4. **Body**: base, Regular (400), normal tracking
+5. **Captions**: sm, Regular (400), normal tracking
+
+**Font Weights**: Regular (400) and Medium (500) only—no Bold to maintain restraint
 
 ---
 
@@ -61,54 +58,59 @@ Fluid sizing with `clamp()` for responsive typography:
 
 ### Philosophy
 
-**Warm Neutrals**: All grays tinted toward amber (60° hue in OKLCH)
-- Creates subconscious warmth
-- Avoids cold, clinical feel of pure grays
+**Deep Blue-Gray & Warm Gray**: Calm, neutral palette that feels professional yet approachable
+- Creates a sense of quiet authority
+- Avoids cold sterility of pure grays
 - Aligns with "restrained yet warm" principle
 
-### Palette (OKLCH)
+### Palette
 
 ```css
-/* Warm neutrals - tinted toward amber */
---stone-50:  oklch(98% 0.01 60)   /* Almost white, subtle warmth */
---stone-100: oklch(96% 0.012 60)  /* Very light background */
---stone-200: oklch(92% 0.015 60)  /* Borders */
---stone-300: oklch(85% 0.018 60)  /* Disabled states */
---stone-400: oklch(70% 0.02 60)   /* Muted text */
---stone-500: oklch(55% 0.02 60)   /* Secondary text */
---stone-600: oklch(40% 0.018 60)  /* Body text */
---stone-700: oklch(30% 0.015 60)  /* - */
---stone-800: oklch(22% 0.012 60)  /* - */
---stone-900: oklch(15% 0.01 60)   /* Primary text, headings */
+/* Deep blue-gray neutrals - calm and restrained */
+--gray-50: #f8f9fa;
+--gray-100: #f1f3f5;
+--gray-200: #e9ecef;   /* Borders */
+--gray-300: #dee2e6;
+--gray-400: #ced4da;
+--gray-500: #adb5bd;
+--gray-600: #868e96;   /* Muted text */
+--gray-700: #495057;   /* Secondary text */
+--gray-800: #343a40;
+--gray-900: #212529;   /* Primary text */
 
-/* Accent - warm amber */
---accent:        oklch(75% 0.15 70)  /* Primary accent */
---accent-light:  oklch(85% 0.12 70)  /* Hover states */
---accent-subtle: oklch(92% 0.08 70)  /* Backgrounds */
+/* Warm gray for subtle warmth */
+--warm-gray-50: #fafaf9;
+--warm-gray-100: #f5f5f4;
+
+/* Accent - warm green for completion */
+--accent: #22c55e;        /* Completion, success */
+--accent-light: #86efac;
+--accent-subtle: #dcfce7;
+
+/* Semantic colors */
+--text-primary: var(--gray-900);
+--text-secondary: var(--gray-700);
+--text-muted: var(--gray-600);
+--bg: #ffffff;
+--surface: var(--gray-50);
+--border: var(--gray-200);
 ```
-
-### Why OKLCH?
-
-- Perceptually uniform (unlike HSL/RGB)
-- Precise control over lightness
-- Consistent chroma across hues
-- Future-proof (CSS Color Level 4)
 
 ### Usage
 
-- **Primary text**: `--stone-900` (dark, warm)
-- **Body text**: `--stone-600` (readable, not harsh)
-- **Muted text**: `--stone-500` (subtle, secondary info)
-- **Backgrounds**: `--stone-50` (main), `--surface` (cards/sections)
-- **Accent**: `--accent` (CTAs, highlights, "Day 1" emphasis)
+- **Primary text**: `--gray-900` (dark, readable)
+- **Body text**: `--gray-700` (softer, secondary info)
+- **Muted text**: `--gray-600` (subtle, tertiary info)
+- **Backgrounds**: `white` (main), `--gray-50` (surface/cards)
+- **Accent**: `--accent` (completion states, checkmarks)
 
 ### What We Avoid
 
-- ❌ Pure black (#000) or pure white (#fff)
-- ❌ Cold grays (no hue tint)
-- ❌ Cyan-on-dark "AI palette"
-- ❌ Purple-to-blue gradients everywhere
+- ❌ Pure black (#000) or stark contrasts
+- ❌ Warm amber/yellow tones (too decorative)
 - ❌ Gradient text on headings
+- ❌ Purple-to-blue gradients everywhere
+- ❌ Red for any state (no failure states shown)
 
 ---
 
@@ -116,36 +118,37 @@ Fluid sizing with `clamp()` for responsive typography:
 
 ### Grid Strategy
 
-**Magazine-style asymmetry**:
-- `grid-cols-12` for flexible column layouts
-- Alternating left/right emphasis
-- Generous gutters: `gap-12` (3rem) on desktop
+**Simple, centered layouts**:
+- `max-w-3xl` (768px) for hero and body content
+- `max-w-4xl` (896px) for sections
+- Centered alignment for clean, balanced composition
+- Generous whitespace between sections
 
 ### Spacing Scale
 
-**Fluid spacing** with varied rhythm:
-- Section padding: `py-20 md:py-32` (80px-128px)
-- Component spacing: `space-y-16 md:space-y-20` (64px-80px)
-- Content gaps: `gap-8 md:gap-12` (32px-48px)
+**Generous, breathable spacing**:
+- Section padding: `py-24 md:py-32` (96px-128px)
+- Component spacing: `space-y-6 md:space-y-8` (24px-32px)
+- Card padding: `p-8` (32px)
 
-**Not uniform**:
-- Tight groupings for related content
-- Generous separation between sections
-- Creates visual breathing room
+**Consistent rhythm**:
+- Predictable spacing creates calm
+- Generous gaps between sections for breathing room
+- Tight groupings within related content
 
 ### Container Widths
 
-- **Hero/Headlines**: `max-w-4xl` (896px)
-- **Content**: `max-w-6xl` (1152px)
-- **Body text**: `max-w-3xl` (768px) for optimal line length
+- **Hero/Headlines**: `max-w-3xl` (768px)
+- **Content sections**: `max-w-4xl` (896px)
+- **Full-width**: Only for final CTA with dark background
 
 ### What We Avoid
 
-- ❌ Everything wrapped in cards
-- ❌ Cards inside cards
-- ❌ Same-sized card grids
-- ❌ Centered everything
-- ❌ Uniform spacing everywhere
+- ❌ Magazine-style asymmetry (too busy)
+- ❌ Alternating layouts (too dynamic)
+- ❌ Large decorative numbers
+- ❌ Excessive visual hierarchy variations
+- ❌ Large emoji icons (too playful)
 
 ---
 
@@ -153,58 +156,58 @@ Fluid sizing with `clamp()` for responsive typography:
 
 ### Hero
 
-**Layout**: Left-aligned, asymmetric
-**Headline**: Space Grotesk Bold, 7xl, accent on "Day 1"
-**Subheadline**: Newsreader Serif, multiple paragraphs
-**CTA**: Dark button with accent hover state
-**Detail**: Subtle accent line at bottom
+**Layout**: Centered, generous whitespace
+**Headline**: System font Medium, simple presentation
+**Subheadline**: Multiple short paragraphs, readable line-height
+**CTA**: Simple rounded button with minimal styling
+**Detail**: No decorative elements
 
 ### Problem Section
 
-**Layout**: Article-style, grid-cols-12
-**Structure**: Number + Title (5 cols) | Content (7 cols)
-**Stats**: Large callout boxes with accent color
-**Typography**: Newsreader for readability
+**Layout**: Simple vertical stack of cards
+**Structure**: Card-based with borders, consistent padding
+**Stats**: Minimal presentation at bottom of cards
+**Typography**: Medium weight for titles, Regular for body
 
 ### Cycle Visual
 
-**Layout**: Vertical flow with arrows
-**Visual**: Pills with borders, arrows between
-**Emphasis**: "Back to Day 1" highlighted with accent
-**Background**: Subtle gradient
+**Layout**: Simple horizontal pill flow
+**Visual**: Minimal pills with subtle borders
+**Emphasis**: Subtle gray background for "Back to Day 1"
+**Background**: Solid surface color, no gradients
 
 ### Solution Section
 
-**Layout**: Staggered (alternating left/right)
-**Icons**: Large (6xl), no background shapes
-**Content**: Serif body text for warmth
+**Layout**: Simple vertical stack of cards
+**Structure**: Same card treatment as Problem section
+**Content**: Clean, readable text with no icons
 
 ### Social Proof
 
-**Research**: Grid-cols-3, large stat numbers (accent)
-**Testimonials**: Masonry-style (staggered tops)
-**Quote marks**: Decorative, subtle, accent color
+**Research**: Simple cards with stats
+**Testimonials**: Vertical stack with minimal quote styling
+**Quote marks**: No decorative quote marks
 
 ### Pricing
 
-**Layout**: Split (price left, features right)
-**Price**: Ultra-large (8xl), bold
-**Features**: Custom checkmarks with accent
-**Badge**: Accent background, rounded pill
+**Layout**: Single card with all info
+**Price**: Large but not excessive (5xl)
+**Features**: Simple checkmarks
+**Badge**: Minimal gray badge
 
 ### FAQ
 
-**Animation**: Grid-template-rows transition (smooth height)
-**Icons**: Plus/minus with rotation
-**Typography**: Serif for answers
-**Dividers**: Border between items
+**Animation**: Grid-template-rows transition (smooth)
+**Icons**: Simple + rotation for expand/collapse
+**Typography**: Medium for questions, Regular for answers
+**Style**: Clean cards with borders
 
 ### Final CTA
 
-**Background**: Dark (--text-primary) with subtle accent gradient
-**Layout**: Left-aligned
-**Form**: Inline email + button
-**Contrast**: Light text on dark background
+**Background**: Dark gray-900, no gradients
+**Layout**: Centered, generous whitespace
+**Form**: Simple rounded inputs
+**Contrast**: White text on dark background
 
 ---
 
@@ -212,27 +215,27 @@ Fluid sizing with `clamp()` for responsive typography:
 
 ### Philosophy
 
-**Purposeful, not excessive**
+**Quiet, purposeful transitions**
 - Smooth state changes
-- Exponential easing (ease-out)
-- No bounces, no elastic
+- Simple easing (ease-out)
+- No bounces, no excessive animation
 
 ### Timing
 
 ```css
 /* Standard transitions */
-transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+transition: all 200ms ease-out;
 
 /* Height animations */
-transition: grid-template-rows 300ms cubic-bezier(0.16, 1, 0.3, 1);
+transition: grid-template-rows 200ms ease-out;
 ```
 
 ### What We Avoid
 
-- ❌ Animating layout properties (width, height, padding)
 - ❌ Bounce or elastic easing
+- ❌ Hover scale effects
 - ❌ Excessive micro-interactions
-- ❌ Animation for animation's sake
+- ❌ Decorative animations
 
 ---
 
@@ -242,49 +245,36 @@ transition: grid-template-rows 300ms cubic-bezier(0.16, 1, 0.3, 1);
 
 - Mobile-first approach
 - Key breakpoint: `md:` (768px)
-- Fluid everything: clamp() for sizing, spacing, typography
+- Fluid sizing: `clamp()` for typography and spacing
 
 ### Mobile Adaptations
 
-- Single column layouts collapse naturally
+- Single column layouts
 - Touch-friendly targets (min 44px)
 - Readable text sizes (never below 16px)
-- Generous tap areas on buttons
+- Consistent padding adjustments
 
 ---
 
-## The "Not AI Slop" Checklist
+## The "Things 3 / Notion" Aesthetic
 
-✅ **Distinctive fonts**: Space Grotesk + Newsreader (not Inter/Roboto)  
-✅ **Warm neutrals**: OKLCH tinted grays (not pure #000/#fff)  
-✅ **Editorial layout**: Asymmetric, magazine-style (not centered cards)  
-✅ **Purposeful spacing**: Varied rhythm (not uniform padding)  
-✅ **Restrained motion**: Purposeful transitions (no bounces)  
-✅ **No generic patterns**: No icon-above-heading, no glass cards, no sparklines  
-✅ **Emotional warmth**: Serif quotes, warm colors, gentle accents  
-
----
-
-## Future Enhancements
-
-### Performance
-- [ ] Optimize font loading (font-display: swap)
-- [ ] Lazy load below-fold content
-- [ ] Add skeleton states for forms
-
-### Accessibility
-- [ ] Keyboard navigation review
-- [ ] Color contrast audit (WCAG AAA)
-- [ ] Screen reader testing
-- [ ] Focus indicators
-
-### Polish
-- [ ] Scroll-triggered animations (fade-in on view)
-- [ ] Refined hover states
-- [ ] Custom cursor on interactive elements
-- [ ] Dark mode support (future consideration)
+✅ **System fonts**: Native to platform, instant rendering
+✅ **Restrained colors**: Deep blue-gray, no bright accents
+✅ **Simple cards**: Clean borders, consistent padding
+✅ **Generous whitespace**: Breathing room, not cramped
+✅ **Minimal weight**: Medium (500) for emphasis, Regular (400) for body
+✅ **No decoration**: Every element serves a function
+✅ **Quiet interactions**: Simple, purposeful transitions
 
 ---
 
-**Last updated**: 2026-05-07  
-**Version**: 1.0 (Variant A)
+## References
+
+- **Things 3**: Restrained visual language, clean cards
+- **Notion**: Calm information hierarchy, system fonts
+- **Linear**: Minimal color usage, clean interfaces
+
+---
+
+**Last updated**: 2026-05-06
+**Version**: 2.0 (Restrained Minimal)
