@@ -122,15 +122,23 @@ export default function Hero({ variant }: HeroProps) {
             className="absolute inset-0 blur-3xl opacity-30 rounded-full"
             style={{ background: 'var(--coral)' }}
           />
-          <img 
-            src="/start-small.png" 
-            alt="Start with one small thing" 
-            className="relative w-full h-auto rounded-[2.5rem] shadow-2xl border-[6px] transition-transform duration-700 hover:-translate-y-2"
+          
+          {/* Image Wrapper to clip black corners */}
+          <div 
+            className="relative w-full rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border-[6px] md:border-[8px] transition-transform duration-700 hover:-translate-y-2 z-10"
             style={{ 
               borderColor: 'var(--warm-50)',
-              boxShadow: '0 20px 40px -10px rgba(232, 153, 141, 0.3)'
+              boxShadow: '0 20px 40px -10px rgba(232, 153, 141, 0.3)',
+              backgroundColor: 'var(--warm-50)'
             }}
-          />
+          >
+            <img 
+              src="/start-small.png" 
+              alt="Start with one small thing" 
+              className="w-full h-auto block"
+              style={{ transform: 'scale(1.03)' }} // scale slightly to crop out the black pixels
+            />
+          </div>
         </div>
       </div>
     </section>

@@ -142,14 +142,22 @@ export default function SolutionSection({ variant }: SolutionSectionProps) {
                       className="absolute inset-0 blur-2xl opacity-20 rounded-full"
                       style={{ background: 'var(--coral)' }}
                     />
-                    <img 
-                      src={feature.image} 
-                      alt={feature.title} 
-                      className="relative w-full h-auto rounded-[2rem] shadow-2xl border-[6px] transition-transform duration-700 group-hover:scale-[1.02]"
+                    
+                    {/* Image Wrapper to clip black corners */}
+                    <div 
+                      className="relative w-full rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border-[6px] md:border-[8px] transition-transform duration-700 group-hover:scale-[1.02] z-10"
                       style={{ 
                         borderColor: 'var(--warm-50)',
+                        backgroundColor: 'var(--warm-50)'
                       }}
-                    />
+                    >
+                      <img 
+                        src={feature.image} 
+                        alt={feature.title} 
+                        className="w-full h-auto block"
+                        style={{ transform: 'scale(1.03)' }} // scale slightly to crop out black pixels
+                      />
+                    </div>
                   </div>
                 )}
 
