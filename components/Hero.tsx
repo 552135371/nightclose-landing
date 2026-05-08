@@ -4,20 +4,20 @@ interface HeroProps {
 
 const content = {
   a: {
-    headline: 'Stop starting from Day 1.',
+    headline: "One bad day shouldn't erase 20 good ones.",
     subheadline: [
-      'Why do apps reset your progress when you miss a day?',
-      'NightClose keeps every win—permanently.',
-      'No resets. No "Day 1 again." Just your progress, staying where it belongs.'
+      'Most habit apps reset your progress when you miss a day.',
+      'Miss once—20 days of effort? Gone.',
+      "NightClose doesn't reset. Ever. Your 20 completions stay 20. Your progress accumulates."
     ],
-    audience: 'Built for people who are hardest on themselves.',
+    audience: "Built for people tired of losing what they've earned.",
     cta: 'Join the Waitlist',
     caption: 'Early access · $4.99/mo · iOS launching Summer 2026'
   }
 }
 
 export default function Hero({ variant }: HeroProps) {
-  const data = content[variant]
+  const data = content[variant as keyof typeof content] || content.a
 
   return (
     <section className="px-6 pt-16 pb-24 md:pt-28 md:pb-36 relative overflow-hidden">
@@ -57,14 +57,14 @@ export default function Hero({ variant }: HeroProps) {
               color: 'var(--text-primary)'
             }}
           >
-            {data.headline.split('Day 1').map((part, i, arr) => (
+            {data.headline.split('20').map((part, i, arr) => (
               i < arr.length - 1 ? (
                 <span key={i}>
                   {part}
                   <span style={{
                     color: 'var(--coral)',
                     fontWeight: '400'
-                  }}>Day 1</span>
+                  }}>20</span>
                 </span>
               ) : part
             ))}

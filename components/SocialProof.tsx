@@ -47,7 +47,7 @@ const content = {
 }
 
 export default function SocialProof({ variant }: SocialProofProps) {
-  const data = content[variant]
+  const data = content[variant as keyof typeof content] || content.a
 
   return (
     <section className="px-6 py-16 md:py-24" style={{ background: 'var(--bg)' }}>

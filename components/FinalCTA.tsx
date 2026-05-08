@@ -4,8 +4,8 @@ interface FinalCTAProps {
 
 const content = {
   a: {
-    headline: 'No more Day 1.',
-    subheadline: 'Join 500+ people who never have to start over again.',
+    headline: 'Keep your progress. Finally.',
+    subheadline: 'Join 500+ people who stopped losing their effort.',
     caption: 'Early access opens June 2026',
     cta: 'Join the Waitlist',
     trustBadge: 'We\'ll never spam you. Unsubscribe anytime.'
@@ -13,7 +13,7 @@ const content = {
 }
 
 export default function FinalCTA({ variant }: FinalCTAProps) {
-  const data = content[variant]
+  const data = content[variant as keyof typeof content] || content.a
 
   return (
     <section

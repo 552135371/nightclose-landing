@@ -4,37 +4,37 @@ interface ProblemSectionProps {
 
 const content = {
   a: {
-    title: 'Why you keep starting from zero.',
+    title: 'Why your progress keeps disappearing.',
     problems: [
       {
         number: '01',
-        title: 'Day 1. Again. And Again.',
+        title: 'The Unfair Trade',
         content: [
-          'You had a 15-day streak. Then you missed one day.',
-          'Now it\'s back to "Day 1."',
-          'All that progress—gone. Like it never happened.',
-          'Why do you have to prove yourself again?'
+          'You did it 20 times. You showed up. You tried.',
+          'Then life happened—one busy day, one sick day, one bad day.',
+          'And the app says: "Start over. Prove yourself again."',
+          '20 days of effort. Erased. Like they never happened. How is that fair?'
         ]
       },
       {
         number: '02',
-        title: 'The Endless Restart Cycle',
+        title: 'The Effort-Loss Spiral',
         content: [
-          'Break a streak → Feel defeated → Delay restarting → Feel worse',
-          '72% of perfectionists say restarting is the hardest part.',
-          'You\'re not afraid of doing the work.',
-          'You\'re exhausted from always starting over.'
+          'First time: "Okay, I lost my 15-day streak. I can rebuild."',
+          'Second time: "I lost 22 days this time... ugh."',
+          'Third time: "Why do I keep doing this to myself?"',
+          'It\'s not the habit that\'s hard. It\'s watching your effort vanish—again and again.'
         ],
         stat: { value: '72%', label: 'say restarting is the hardest part' }
       },
       {
         number: '03',
-        title: 'When Apps Make You Quit',
+        title: 'The Real Reason You Quit',
         content: [
-          '65% of users quit within a week after their streak resets.',
+          '65% of users quit within a week after losing progress.',
           'It\'s not lack of discipline. It\'s not laziness.',
-          'It\'s the crushing feeling of "Why bother? I\'ll just lose it again."',
-          'One bad day shouldn\'t erase all the good ones.'
+          'It\'s staring at "0 days" after you had "18 days."',
+          'One reset → self-doubt. Multiple resets → learned helplessness.'
         ],
         stat: { value: '65%', label: 'quit within a week after reset' }
       }
@@ -43,7 +43,7 @@ const content = {
 }
 
 export default function ProblemSection({ variant }: ProblemSectionProps) {
-  const data = content[variant]
+  const data = content[variant as keyof typeof content] || content.a
 
   return (
     <section className="px-6 py-20 md:py-32" style={{ background: 'var(--surface)' }}>

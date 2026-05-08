@@ -4,15 +4,15 @@ interface PricingProps {
 
 const content = {
   a: {
-    headline: 'Simple, honest pricing.',
+    headline: 'Keep what you earn.',
     price: '$4.99',
     period: 'month',
     features: [
       'One habit to start',
       'Progress that never resets',
       'Win-only timeline',
-      'Clean, simple interface',
-      'No ads, no tricks'
+      'No guilt. No pressure.',
+      'No ads, no manipulation'
     ],
     badge: 'Early Bird: Get 2 months free',
     cta: 'Reserve Your Spot'
@@ -20,7 +20,7 @@ const content = {
 }
 
 export default function Pricing({ variant }: PricingProps) {
-  const data = content[variant]
+  const data = content[variant as keyof typeof content] || content.a
 
   return (
     <section

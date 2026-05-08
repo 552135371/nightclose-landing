@@ -10,27 +10,43 @@ const content = {
   a: {
     items: [
       {
-        q: 'Why do I always have to start from Day 1?',
-        a: [
-          'You don\'t—at least not with NightClose.',
-          '',
-          'Traditional apps count consecutive days. Miss one day → reset to zero → back to Day 1. That\'s why 72% of perfectionists say restarting is the hardest part.',
-          '',
-          'NightClose counts cumulative completions. Miss one day → your total stays → you never restart. You had 15 completions? You still have 15. No "Day 1 again."',
-          '',
-          '(Source: Flett et al., 2016)'
-        ]
-      },
-      {
         q: 'What if I miss multiple days in a row?',
         a: [
-          'Your total completions stay exactly where they are. We don\'t reset, we don\'t judge. When you\'re ready to continue, your progress is right there waiting for you.'
+          'Your total stays exactly where it is. Always.',
+          '',
+          '20 completions done → miss one day → still 20',
+          'Miss three days → still 20',
+          'Miss two weeks → still 20',
+          '',
+          'When you\'re ready to continue, your progress is right there. Not gone. Not reset. Just waiting.',
+          '',
+          'You never lose what you\'ve already done.'
         ]
       },
       {
-        q: 'Why show only wins?',
+        q: "Doesn't that mean there's no accountability?",
         a: [
-          'Research shows that 65% of users quit habit apps within 7 days after seeing their failed days. Staring at red X\'s makes you quit—your brain needs to see progress, not failure. We show only your wins. It\'s that simple.',
+          'Every completion still counts. We\'re not letting you off the hook—we\'re not erasing your progress.',
+          '',
+          'The difference: we don\'t punish you by deleting 20 days of effort because you missed once.',
+          '',
+          'Traditional apps reset your count to create anxiety ("Don\'t lose your streak!"). We count every win—because research shows that seeing accumulated progress motivates you more than fear of loss.',
+          '',
+          'You\'re accountable for every completion. But you\'re not penalized for being human.'
+        ]
+      },
+      {
+        q: 'Why only show wins?',
+        a: [
+          'Because seeing what you didn\'t do makes you quit.',
+          '',
+          'Research: 65% of users quit within 7 days after seeing their progress reset.',
+          '',
+          'Staring at red X\'s, broken chains, and "0 days" doesn\'t motivate you. It demoralizes you.',
+          '',
+          'Your brain needs to see progress, not failure. We show you: 20 completions. 35 completions. 52 completions. Not: 18 failures, 7 missed days, 0-day streak.',
+          '',
+          'You already know when you didn\'t do it. You don\'t need the app rubbing it in.',
           '',
           '(Source: Behavioral Science, 2021)'
         ]
@@ -38,7 +54,9 @@ const content = {
       {
         q: 'Is this a therapy app?',
         a: [
-          'No. We\'re a habit tracker for people who need support, not clinical help. If you\'re struggling with mental health, please see a professional. We\'re a tool, not a treatment.'
+          'No. We\'re a habit tracker that doesn\'t punish you for missing a day.',
+          '',
+          'If you\'re struggling with mental health, please see a licensed professional. We\'re a tool—not a treatment.'
         ]
       }
     ]
@@ -46,7 +64,7 @@ const content = {
 }
 
 export default function FAQ({ variant }: FAQProps) {
-  const data = content[variant]
+  const data = content[variant as keyof typeof content] || content.a
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (

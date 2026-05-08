@@ -4,38 +4,38 @@ interface SolutionSectionProps {
 
 const content = {
   a: {
-    title: 'NightClose breaks the cycle.',
+    title: 'What if your progress stayed?',
     features: [
       {
         icon: '📊',
-        title: 'Progress That Accumulates',
+        title: 'Your Wins Stay—Forever',
         content: [
-          'Every completion counts—forever',
-          'No resets. No cycles. Just cumulative progress.',
-          '12 completions done—and it never goes back to zero.',
-          'Miss a day? Your progress stays.'
+          '20 completions done? 20 stays. Always.',
+          'Miss a day? 20. Miss a week? Still 20. Come back a month later? 20 is waiting for you.',
+          'Your progress accumulates. It never resets.',
+          'Every single time you showed up—counted. Permanently.'
         ],
         image: null
       },
       {
         icon: '✨',
-        title: 'Win-Only Timeline',
+        title: "Only See What You've Accomplished",
         content: [
-          'See only what went right',
-          'Clean timeline showing your wins—no red marks, ever.',
-          'Failed days don\'t show up. You only see your successes.',
-          'Your brain needs to see progress, not failure.'
+          'A timeline of your wins. No failures. Ever.',
+          "No red X's marking the days you didn't. No broken chains staring back at you.",
+          'Just a clean record: every time you did the thing.',
+          "Because seeing what you didn't do doesn't help you move forward. Seeing what you did do—does."
         ],
         image: '/success-log.png'
       },
       {
         icon: '🌙',
-        title: 'Quiet Closure',
+        title: 'A Quiet Exit When You Need It',
         content: [
-          'A gentle exit when you can\'t',
-          'Didn\'t do it today? That\'s okay.',
-          'One tap closes the day—no guilt, no questions.',
-          'Wake up tomorrow with a clean slate.'
+          'One tap closes the day—no guilt, no questions asked',
+          "Can't do it today? That's okay. One tap: day closed.",
+          "No \"Why didn't you?\" No guilt-tripping reminders. Just: \"See you tomorrow.\"",
+          'Tomorrow starts fresh. Your 20 completions stay.'
         ],
         image: '/quiet-closure.png'
       }
@@ -44,7 +44,7 @@ const content = {
 }
 
 export default function SolutionSection({ variant }: SolutionSectionProps) {
-  const data = content[variant]
+  const data = content[variant as keyof typeof content] || content.a
 
   return (
     <section className="px-6 py-20 md:py-32 relative overflow-hidden">
