@@ -50,7 +50,7 @@ export default function CycleVisual() {
               color: 'var(--text-primary)'
             }}
           >
-            The Cycle You're Stuck In
+            The Cycle You&apos;re Stuck In
           </h2>
           <p
             className="text-lg md:text-xl max-w-2xl mx-auto"
@@ -130,7 +130,7 @@ export default function CycleVisual() {
               lineHeight: '1.7'
             }}
           >
-            <span className="font-semibold" style={{ color: 'var(--coral-dark)' }}>72%</span> of perfectionists say the hardest part isn't doing the work—it's starting over after a reset.
+            <span className="font-semibold" style={{ color: 'var(--coral-dark)' }}>72%</span> of perfectionists say the hardest part isn&apos;t doing the work—it&apos;s starting over after a reset.
           </p>
         </div>
       </div>

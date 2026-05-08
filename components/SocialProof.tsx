@@ -152,7 +152,7 @@ export default function SocialProof({ variant }: SocialProofProps) {
                   fontStyle: 'italic'
                 }}
               >
-                "{testimonial.quote}"
+                &quot;{testimonial.quote}&quot;
               </p>
 
               {/* Attribution */}
