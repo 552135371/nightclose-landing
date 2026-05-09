@@ -1,3 +1,5 @@
+'use client'
+
 interface FinalCTAProps {
   variant: 'a' | 'b' | 'c' | 'd'
 }
@@ -5,7 +7,7 @@ interface FinalCTAProps {
 const content = {
   a: {
     headline: 'Your progress deserves an app that keeps it.',
-    subheadline: '500+ people waiting. Early access June 2026.',
+    subheadline: '500+ people waiting. Early access Summer 2026.',
     caption: '',
     cta: 'Join the Waitlist',
     trustBadge: 'We\'ll never spam you. Unsubscribe anytime.'
@@ -14,6 +16,18 @@ const content = {
 
 export default function FinalCTA({ variant }: FinalCTAProps) {
   const data = content[variant as keyof typeof content] || content.a
+
+  const openTallyForm = () => {
+    // @ts-ignore - Tally is loaded via script tag
+    if (typeof window !== 'undefined' && window.Tally) {
+      // @ts-ignore
+      window.Tally.openPopup('0Q1EEA', {
+        layout: 'modal',
+        width: 600,
+        autoClose: 3000,
+      })
+    }
+  }
 
   return (
     <section
@@ -66,35 +80,23 @@ export default function FinalCTA({ variant }: FinalCTAProps) {
           {data.caption}
         </p>
 
-        {/* Email Form */}
+        {/* CTA Button */}
         <div className="max-w-xl mx-auto">
-          <div className="flex flex-col sm:flex-row gap-3 mb-4">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-6 py-4 rounded-full text-base focus:outline-none focus:ring-4 transition-all duration-300"
-              style={{
-                background: 'white',
-                color: 'var(--text-primary)',
-                border: 'none',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
-              }}
-            />
-            <button
-              className="px-8 py-4 rounded-full font-medium text-base whitespace-nowrap transition-all duration-300 hover:scale-105"
-              style={{
-                background: 'white',
-                color: 'var(--coral)',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.15)'
-              }}
-            >
-              {data.cta}
-            </button>
-          </div>
+          <button
+            onClick={openTallyForm}
+            className="px-12 py-5 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            style={{
+              background: 'white',
+              color: 'var(--coral)',
+              boxShadow: '0 8px 30px rgba(0,0,0,0.2)'
+            }}
+          >
+            {data.cta} →
+          </button>
 
           {/* Trust Badge */}
           <p
-            className="text-sm flex items-center justify-center gap-2"
+            className="text-sm flex items-center justify-center gap-2 mt-6"
             style={{
               color: 'rgba(255, 255, 255, 0.8)'
             }}

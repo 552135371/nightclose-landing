@@ -67,45 +67,52 @@ export default function ProblemSection({ variant }: ProblemSectionProps) {
         </div>
 
         {/* Problem Items - elevated cards with shadows */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
           {data.problems.map((problem, i) => (
             <div
               key={i}
-              className="group p-6 md:p-8 rounded-2xl transition-all duration-500 hover:-translate-y-1"
+              className="group relative p-8 md:p-10 lg:p-12 rounded-[2.5rem] transition-all duration-700 hover:-translate-y-2 overflow-hidden flex flex-col"
               style={{
                 background: 'var(--bg)',
-                boxShadow: '0 4px 24px rgba(232, 153, 141, 0.08)',
+                boxShadow: '0 8px 32px rgba(232, 153, 141, 0.08)',
                 border: '1px solid var(--warm-200)'
               }}
             >
-              {/* Number badge */}
-              <div
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full mb-6"
-                style={{
-                  background: 'var(--coral-subtle)',
-                  color: 'var(--coral)',
-                  fontSize: '0.875rem',
-                  fontWeight: '600'
+              {/* Huge subtle number watermark */}
+              <div 
+                className="absolute -top-8 -right-4 text-[10rem] md:text-[12rem] serif opacity-[0.03] pointer-events-none transition-transform duration-700 group-hover:scale-105"
+                style={{ 
+                  color: 'var(--text-primary)', 
+                  lineHeight: 1,
+                  letterSpacing: '-0.05em'
                 }}
               >
                 {String(i + 1).padStart(2, '0')}
               </div>
 
+              {/* Pre-title */}
+              <div
+                className="text-sm font-medium tracking-widest uppercase mb-6 relative z-10"
+                style={{ color: 'var(--coral)' }}
+              >
+                Phase {String(i + 1).padStart(2, '0')}
+              </div>
+
               {/* Title */}
               <h3
-                className="serif text-2xl md:text-3xl mb-5"
+                className="serif text-2xl md:text-3xl lg:text-4xl mb-6 relative z-10"
                 style={{
                   color: 'var(--text-primary)',
-                  fontWeight: '500',
-                  lineHeight: '1.25',
-                  letterSpacing: '-0.01em'
+                  fontWeight: '400',
+                  lineHeight: '1.2',
+                  letterSpacing: '-0.015em'
                 }}
               >
                 {problem.title}
               </h3>
 
               {/* Content */}
-              <div className="space-y-3 mb-6">
+              <div className="space-y-4 mb-8 flex-1 relative z-10">
                 {problem.content.map((line, j) => (
                   <p
                     key={j}
@@ -122,22 +129,23 @@ export default function ProblemSection({ variant }: ProblemSectionProps) {
               {/* Stat - highlighted */}
               {problem.stat && (
                 <div
-                  className="pt-5 mt-5"
+                  className="pt-6 mt-auto relative z-10"
                   style={{
                     borderTop: '1px solid var(--warm-200)'
                   }}
                 >
                   <div
-                    className="serif text-3xl mb-1"
+                    className="serif text-4xl lg:text-5xl mb-2 transition-transform duration-500 origin-left group-hover:scale-105"
                     style={{
                       color: 'var(--coral)',
-                      fontWeight: '400'
+                      fontWeight: '400',
+                      letterSpacing: '-0.02em'
                     }}
                   >
                     {problem.stat.value}
                   </div>
                   <p
-                    className="text-sm"
+                    className="text-sm md:text-base font-medium"
                     style={{
                       color: 'var(--text-muted)'
                     }}

@@ -95,24 +95,24 @@ export default function SolutionSection({ variant }: SolutionSectionProps) {
         </div>
 
         {/* Features - elegant stacked cards */}
-        <div className="space-y-12 max-w-5xl mx-auto">
+        <div className="space-y-16 lg:space-y-24 max-w-5xl mx-auto">
           {data.features.map((feature, i) => (
             <div
               key={i}
-              className="group p-6 md:p-10 rounded-3xl transition-all duration-500 hover:-translate-y-1 overflow-hidden"
+              className="group p-8 md:p-12 lg:p-16 rounded-[2.5rem] transition-all duration-700 hover:-translate-y-2 overflow-hidden"
               style={{
                 background: i % 2 === 0 ? 'var(--bg)' : 'var(--surface-elevated)',
                 boxShadow: '0 8px 32px rgba(232, 153, 141, 0.08)',
                 border: '1px solid var(--warm-200)'
               }}
             >
-              <div className={`flex flex-col ${i % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-10 md:gap-16`}>
+              <div className={`flex flex-col ${i % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 md:gap-20`}>
                 
                 {/* Text Side */}
-                <div className="flex-1 flex flex-col sm:flex-row items-start gap-6 w-full">
+                <div className="flex-1 flex flex-col sm:flex-row items-start gap-8 w-full">
                   {/* Icon */}
                   <div
-                    className="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shadow-sm"
+                    className="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shadow-sm transition-transform duration-500 group-hover:scale-110"
                     style={{
                       background: 'var(--coral-subtle)'
                     }}
@@ -123,19 +123,19 @@ export default function SolutionSection({ variant }: SolutionSectionProps) {
                   <div className="flex-1">
                     {/* Title */}
                     <h3
-                      className="serif text-2xl md:text-3xl lg:text-4xl mb-4 md:mb-6"
+                      className="serif text-3xl md:text-4xl lg:text-5xl mb-6 md:mb-8"
                       style={{
                         color: 'var(--text-primary)',
-                        fontWeight: '500',
-                        lineHeight: '1.2',
-                        letterSpacing: '-0.015em'
+                        fontWeight: '400',
+                        lineHeight: '1.15',
+                        letterSpacing: '-0.02em'
                       }}
                     >
                       {feature.title}
                     </h3>
 
                     {/* Content */}
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       {feature.content.map((line, j) => (
                         <p
                           key={j}

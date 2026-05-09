@@ -52,7 +52,7 @@ export default function Pricing({ variant }: PricingProps) {
         {/* Pricing card */}
         <div className="max-w-2xl mx-auto">
           <div
-            className="p-8 md:p-12 rounded-3xl relative overflow-hidden"
+            className="p-10 md:p-14 lg:p-16 rounded-[2.5rem] relative overflow-hidden transition-all duration-700 hover:shadow-2xl"
             style={{
               background: 'var(--bg)',
               boxShadow: '0 8px 32px rgba(232, 153, 141, 0.12)',
@@ -61,7 +61,7 @@ export default function Pricing({ variant }: PricingProps) {
           >
             {/* Decorative corner gradient */}
             <div
-              className="absolute top-0 right-0 w-48 h-48 opacity-20"
+              className="absolute top-0 right-0 w-64 h-64 opacity-20 transition-transform duration-1000 hover:scale-110"
               style={{
                 background: `radial-gradient(circle at top right, var(--coral-light), transparent 70%)`
               }}
@@ -70,7 +70,7 @@ export default function Pricing({ variant }: PricingProps) {
             <div className="relative z-10">
               {/* Badge */}
               <div
-                className="inline-block px-4 py-2 rounded-full text-sm font-medium mb-8"
+                className="inline-block px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold tracking-widest uppercase mb-10"
                 style={{
                   background: 'var(--coral-subtle)',
                   color: 'var(--coral)'
@@ -80,21 +80,22 @@ export default function Pricing({ variant }: PricingProps) {
               </div>
 
               {/* Price */}
-              <div className="mb-10">
+              <div className="mb-12">
                 <div className="flex items-baseline gap-3 mb-2">
                   <span
-                    className="serif"
+                    className="serif transition-all duration-300 hover:scale-105 origin-left"
                     style={{
-                      fontSize: 'clamp(3.5rem, 10vw, 5.5rem)',
-                      fontWeight: '500',
+                      fontSize: 'clamp(4rem, 10vw, 6.5rem)',
+                      fontWeight: '400',
                       letterSpacing: '-0.03em',
-                      color: 'var(--text-primary)'
+                      color: 'var(--text-primary)',
+                      lineHeight: '1'
                     }}
                   >
                     {data.price}
                   </span>
                   <span
-                    className="text-2xl"
+                    className="text-xl md:text-2xl font-medium"
                     style={{ color: 'var(--text-muted)' }}
                   >
                     / {data.period}
@@ -103,18 +104,18 @@ export default function Pricing({ variant }: PricingProps) {
               </div>
 
               {/* Features */}
-              <ul className="space-y-4 mb-10">
+              <ul className="space-y-5 mb-14">
                 {data.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3">
+                  <li key={i} className="flex items-start gap-4">
                     {/* Checkmark */}
                     <div
-                      className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5"
+                      className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center mt-1"
                       style={{
                         background: 'var(--coral-subtle)'
                       }}
                     >
                       <svg
-                        className="w-3.5 h-3.5"
+                        className="w-4 h-4"
                         viewBox="0 0 20 20"
                         fill="none"
                         style={{ color: 'var(--coral)' }}
@@ -130,7 +131,7 @@ export default function Pricing({ variant }: PricingProps) {
                     </div>
 
                     <span
-                      className="text-lg md:text-xl"
+                      className="text-lg md:text-xl leading-relaxed"
                       style={{ color: 'var(--text-secondary)' }}
                     >
                       {feature}
@@ -141,11 +142,11 @@ export default function Pricing({ variant }: PricingProps) {
 
               {/* CTA */}
               <button
-                className="w-full px-6 py-4 md:px-8 md:py-5 rounded-full font-medium text-lg transition-all duration-300 hover:shadow-xl"
+                className="w-full px-6 py-5 md:px-10 md:py-6 rounded-full font-medium text-lg md:text-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
                 style={{
                   background: 'var(--coral)',
                   color: 'white',
-                  boxShadow: '0 4px 20px rgba(232, 153, 141, 0.3)'
+                  boxShadow: '0 8px 24px rgba(232, 153, 141, 0.4)'
                 }}
               >
                 {data.cta}

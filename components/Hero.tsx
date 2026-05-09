@@ -1,3 +1,5 @@
+'use client'
+
 interface HeroProps {
   variant: 'a' | 'b' | 'c' | 'd'
 }
@@ -18,8 +20,20 @@ const content = {
 export default function Hero({ variant }: HeroProps) {
   const data = content[variant as keyof typeof content] || content.a
 
+  const openTallyForm = () => {
+    // @ts-ignore - Tally is loaded via script tag
+    if (typeof window !== 'undefined' && window.Tally) {
+      // @ts-ignore
+      window.Tally.openPopup('0Q1EEA', {
+        layout: 'modal',
+        width: 600,
+        autoClose: 3000,
+      })
+    }
+  }
+
   return (
-    <section className="px-6 pt-16 pb-24 md:pt-28 md:pb-36 relative overflow-hidden">
+    <section className="px-6 pt-16 pb-12 md:pt-28 md:pb-16 relative overflow-hidden">
       {/* Soft gradient background */}
       <div
         className="absolute inset-0 opacity-40"
@@ -89,6 +103,7 @@ export default function Hero({ variant }: HeroProps) {
           {/* CTA - elegant button with shadow */}
           <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
             <button
+              onClick={openTallyForm}
               className="group px-6 py-3.5 md:px-8 md:py-4 rounded-full text-base font-medium transition-all duration-300 w-full sm:w-auto text-center"
               style={{
                 background: 'var(--coral)',

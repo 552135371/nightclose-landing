@@ -29,7 +29,7 @@ export default function CycleVisual() {
   ]
 
   return (
-    <section className="px-6 py-20 md:py-32 relative overflow-hidden" style={{ background: 'var(--surface)' }}>
+    <section className="px-6 pt-12 pb-24 md:pt-16 md:pb-36 relative overflow-hidden">
       {/* Decorative background gradient */}
       <div
         className="absolute inset-0 opacity-30"
