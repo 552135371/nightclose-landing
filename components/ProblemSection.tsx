@@ -8,35 +8,33 @@ const content = {
     problems: [
       {
         number: '01',
-        title: 'The Unfair Trade',
+        title: 'The moment it breaks',
         content: [
-          'You did it 20 times. You showed up. You tried.',
-          'Then life happened—one busy day, one sick day, one bad day.',
-          'And the app says: "Start over. Prove yourself again."',
-          '20 days of effort. Erased. Like they never happened. How is that fair?'
+          'You\'re on day 21. Life happens—a deadline, a sick kid, a night you just forgot.',
+          'You open the app the next morning. Day 0.',
+          'All those green checkmarks, gone. Not paused. Not saved. Erased.'
         ]
       },
       {
         number: '02',
-        title: 'The Effort-Loss Spiral',
+        title: 'The spiral that follows',
         content: [
-          'First time: "Okay, I lost my 15-day streak. I can rebuild."',
-          'Second time: "I lost 22 days this time... ugh."',
-          'Third time: "Why do I keep doing this to myself?"',
-          'It\'s not the habit that\'s hard. It\'s watching your effort vanish—again and again.'
+          'First, you feel shame. Then you think: "I ruined it again."',
+          'The app doesn\'t show your 20 wins anymore—just the one miss.',
+          'So you stop opening it. Not because you gave up on the habit.',
+          'Because seeing zero feels worse than not trying at all.'
         ],
-        stat: { value: '72%', label: 'say restarting is the hardest part' }
+        stat: { value: '72%', label: 'quit within 3 weeks after reset' }
       },
       {
         number: '03',
-        title: 'The Real Reason You Quit',
+        title: 'It\'s not your fault. It\'s the system.',
         content: [
-          '65% of users quit within a week after losing progress.',
-          'It\'s not lack of discipline. It\'s not laziness.',
-          'It\'s staring at "0 days" after you had "18 days."',
-          'One reset → self-doubt. Multiple resets → learned helplessness.'
+          '72% of habit app users quit within 3 weeks—not because they lack discipline, but because the app punishes imperfection.',
+          'One miss = total reset. Your brain sees "Day 0" and learns: "Why bother?"',
+          'The apps you trusted treated progress like a house of cards.'
         ],
-        stat: { value: '65%', label: 'quit within a week after reset' }
+        stat: { value: '72%', label: 'quit within 3 weeks' }
       }
     ]
   }

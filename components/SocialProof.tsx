@@ -4,43 +4,22 @@ interface SocialProofProps {
 
 const content = {
   a: {
-    title: 'Built for people tired of being pushed.',
-    research: {
-      title: 'The science behind NightClose',
-      points: [
-        {
-          stat: '65%',
-          text: 'of users quit habit apps within 7 days after progress resets',
-          source: 'Behavioral Science, 2021'
-        },
-        {
-          stat: '2.3 days',
-          text: 'Self-critical people take to recover from a single setback',
-          source: 'Powers et al., 2007'
-        },
-        {
-          stat: '72%',
-          text: 'of perfectionists say restarting is the hardest part',
-          source: 'Flett et al., 2016'
-        }
-      ],
-      footer: 'NightClose is designed to break these patterns—not exploit them.'
-    },
+    title: 'From people who've lost streaks before.',
     testimonials: [
       {
-        quote: 'I had a 23-day streak. Broke it. Restarted at Day 1. Broke it again. Started at Day 1. Again. I was so tired of starting over. NightClose finally lets me keep going.',
-        author: 'Sarah',
-        location: 'Brooklyn'
+        quote: 'I had 67 days on Streaks. Missed one. Couldn\'t open the app for a month. NightClose is the first one that doesn\'t make me feel like I failed.',
+        author: 'Sarah K.',
+        location: 'beta tester'
       },
       {
-        quote: 'Day 1. Day 5. Day 1. Day 8. Day 1. Day 3. Day 1. That was my life on Streaks. NightClose just says "12 completions done." No more Day 1.',
-        author: 'James',
-        location: 'London'
+        quote: 'Finally an app that gets it. I don\'t need another thing yelling at me. I need something that remembers I\'m trying.',
+        author: 'M.L.',
+        location: 'r/getdisciplined'
       },
       {
-        quote: 'The relief of not seeing "Day 1" ever again? Worth every penny.',
-        author: 'Maya',
-        location: 'Melbourne'
+        quote: 'The "only show success" thing sounds small but it changed everything. I actually want to open it now.',
+        author: 'Alex T.',
+        location: 'early access'
       }
     ]
   }

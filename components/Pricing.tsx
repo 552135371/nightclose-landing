@@ -4,15 +4,15 @@ interface PricingProps {
 
 const content = {
   a: {
-    headline: 'Keep what you earn.',
+    headline: 'One price. No guilt.',
     price: '$4.99',
     period: 'month',
     features: [
-      'One habit to start',
-      'Progress that never resets',
-      'Win-only timeline',
-      'No guilt. No pressure.',
-      'No ads, no manipulation'
+      'Unlimited habits tracked',
+      'Progress stored forever—never resets',
+      'Success-only timeline (no failure markers)',
+      'Gentle daily close (no late-night pushes)',
+      'iOS + Cloud sync (Android 2027)'
     ],
     badge: 'Early Bird: Get 2 months free',
     cta: 'Reserve Your Spot'

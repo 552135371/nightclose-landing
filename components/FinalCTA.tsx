@@ -4,9 +4,9 @@ interface FinalCTAProps {
 
 const content = {
   a: {
-    headline: 'Keep your progress. Finally.',
-    subheadline: 'Join 500+ people who stopped losing their effort.',
-    caption: 'Early access opens June 2026',
+    headline: 'Your progress deserves an app that keeps it.',
+    subheadline: '500+ people waiting. Early access June 2026.',
+    caption: '',
     cta: 'Join the Waitlist',
     trustBadge: 'We\'ll never spam you. Unsubscribe anytime.'
   }

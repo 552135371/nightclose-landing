@@ -10,53 +10,35 @@ const content = {
   a: {
     items: [
       {
-        q: 'What if I miss multiple days in a row?',
+        q: 'Is this just another habit tracker that doesn't push me?',
         a: [
-          'Your total stays exactly where it is. Always.',
+          'No. The core difference is progress storage. Most apps—even gentle ones—still count streaks, which means missing a day resets your number to zero.',
           '',
-          '20 completions done → miss one day → still 20',
-          'Miss three days → still 20',
-          'Miss two weeks → still 20',
-          '',
-          'When you\'re ready to continue, your progress is right there. Not gone. Not reset. Just waiting.',
-          '',
-          'You never lose what you\'ve already done.'
+          'NightClose counts completions, so your progress never goes backward. It\'s not about removing notifications. It\'s about changing what gets erased.'
         ]
       },
       {
-        q: "Doesn't that mean there's no accountability?",
+        q: 'What if I miss a week? Does it punish me?',
         a: [
-          'Every completion still counts. We\'re not letting you off the hook—we\'re not erasing your progress.',
+          'No. If you logged 30 completions, then took a 10-day break, you still have 30 completions when you return.',
           '',
-          'The difference: we don\'t punish you by deleting 20 days of effort because you missed once.',
-          '',
-          'Traditional apps reset your count to create anxiety ("Don\'t lose your streak!"). We count every win—because research shows that seeing accumulated progress motivates you more than fear of loss.',
-          '',
-          'You\'re accountable for every completion. But you\'re not penalized for being human.'
+          'We don\'t subtract. We don\'t nag. Your progress waits for you.'
         ]
       },
       {
-        q: 'Why only show wins?',
+        q: 'Can I see my "streak" if I want to?',
         a: [
-          'Because seeing what you didn\'t do makes you quit.',
+          'Yes. You can toggle a "current run" view (how many consecutive days).',
           '',
-          'Research: 65% of users quit within 7 days after seeing their progress reset.',
-          '',
-          'Staring at red X\'s, broken chains, and "0 days" doesn\'t motivate you. It demoralizes you.',
-          '',
-          'Your brain needs to see progress, not failure. We show you: 20 completions. 35 completions. 52 completions. Not: 18 failures, 7 missed days, 0-day streak.',
-          '',
-          'You already know when you didn\'t do it. You don\'t need the app rubbing it in.',
-          '',
-          '(Source: Behavioral Science, 2021)'
+          'But it\'s secondary. The main number you see is total completions—because that\'s what actually measures your effort over time.'
         ]
       },
       {
-        q: 'Is this a therapy app?',
+        q: 'Why isn't this free?',
         a: [
-          'No. We\'re a habit tracker that doesn\'t punish you for missing a day.',
+          'Because we don\'t sell your data, and we don\'t use dark patterns to keep you hooked.',
           '',
-          'If you\'re struggling with mental health, please see a licensed professional. We\'re a tool—not a treatment.'
+          '$4.99/month covers development and lets us build a tool that respects your autonomy—not a dopamine slot machine.'
         ]
       }
     ]

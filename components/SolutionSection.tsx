@@ -5,37 +5,37 @@ interface SolutionSectionProps {
 const content = {
   a: {
     title: 'What if your progress stayed?',
+    transition: 'But what if the app remembered what you actually did?',
     features: [
       {
         icon: '📊',
-        title: 'Your Wins Stay—Forever',
+        title: '20 completions is still 20—even if you miss a week.',
         content: [
-          '20 completions done? 20 stays. Always.',
-          'Miss a day? 20. Miss a week? Still 20. Come back a month later? 20 is waiting for you.',
-          'Your progress accumulates. It never resets.',
-          'Every single time you showed up—counted. Permanently.'
+          'Other apps count streaks. NightClose counts completions. Miss a day? Your total doesn\'t go backward. Take a month off? Your 47 workouts are still 47 when you come back.',
+          'We don\'t erase progress because you\'re human. We store it—because that\'s what actually happened.',
+          'Before: Day 18 → miss once → Day 0.',
+          'With NightClose: 18 completions → miss once → still 18 completions.',
+          'Your progress doesn\'t depend on perfection. It depends on what you did.'
         ],
         image: null
       },
       {
         icon: '✨',
-        title: "Only See What You've Accomplished",
+        title: 'You see wins. Not red X's.',
         content: [
-          'A timeline of your wins. No failures. Ever.',
-          "No red X's marking the days you didn't. No broken chains staring back at you.",
-          'Just a clean record: every time you did the thing.',
-          "Because seeing what you didn't do doesn't help you move forward. Seeing what you did do—does."
+          'When you open NightClose, you see a stream of the days you showed up. No failure markers. No guilt-inducing gaps.',
+          'Just the proof that you did it—22 times, 104 times, however many.',
+          'We make your effort visible. The rest stays quiet.'
         ],
         image: '/success-log.png'
       },
       {
         icon: '🌙',
-        title: 'A Quiet Exit When You Need It',
+        title: 'We don't chase you. We let you rest.',
         content: [
-          'One tap closes the day—no guilt, no questions asked',
-          "Can't do it today? That's okay. One tap: day closed.",
-          "No \"Why didn't you?\" No guilt-tripping reminders. Just: \"See you tomorrow.\"",
-          'Tomorrow starts fresh. Your 20 completions stay.'
+          'End your day, and NightClose says: "Today\'s done. See you tomorrow."',
+          'No push notifications at 11:47pm. No "Don\'t break your streak!" anxiety.',
+          'You get a quiet exit—because consistency shouldn\'t feel like surveillance.'
         ],
         image: '/quiet-closure.png'
       }
@@ -57,6 +57,22 @@ export default function SolutionSection({ variant }: SolutionSectionProps) {
       />
 
       <div className="max-w-6xl mx-auto relative z-10">
+        {/* Transition Moment */}
+        {'transition' in data && (
+          <div className="text-center mb-16">
+            <p
+              className="text-xl md:text-2xl"
+              style={{
+                color: 'var(--text-secondary)',
+                fontStyle: 'italic',
+                fontWeight: '400'
+              }}
+            >
+              {data.transition}
+            </p>
+          </div>
+        )}
+
         {/* Section Title */}
         <div className="text-center mb-20">
           <h2
