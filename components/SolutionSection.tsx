@@ -21,7 +21,7 @@ const content = {
       },
       {
         icon: '✨',
-        title: 'You see wins. Not red X's.',
+        title: "You see wins. Not red X's.",
         content: [
           'When you open NightClose, you see a stream of the days you showed up. No failure markers. No guilt-inducing gaps.',
           'Just the proof that you did it—22 times, 104 times, however many.',
@@ -31,7 +31,7 @@ const content = {
       },
       {
         icon: '🌙',
-        title: 'We don't chase you. We let you rest.',
+        title: "We don't chase you. We let you rest.",
         content: [
           'End your day, and NightClose says: "Today\'s done. See you tomorrow."',
           'No push notifications at 11:47pm. No "Don\'t break your streak!" anxiety.',

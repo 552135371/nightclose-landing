@@ -7,7 +7,7 @@ const content = {
     headline: "Your streak died. Your progress didn't.",
     subheadline: [
       'You did it 20 times. Then you missed once. And the app acted like those 20 never happened.',
-      'Your progress was real. The streak counter just couldn't see it.'
+      "Your progress was real. The streak counter just couldn't see it."
     ],
     audience: "Built for people who've lost their streak—but not their commitment.",
     cta: 'Join the Waitlist',

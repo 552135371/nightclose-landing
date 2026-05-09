@@ -10,7 +10,7 @@ const content = {
   a: {
     items: [
       {
-        q: 'Is this just another habit tracker that doesn't push me?',
+        q: "Is this just another habit tracker that doesn't push me?",
         a: [
           'No. The core difference is progress storage. Most apps—even gentle ones—still count streaks, which means missing a day resets your number to zero.',
           '',
@@ -34,7 +34,7 @@ const content = {
         ]
       },
       {
-        q: 'Why isn't this free?',
+        q: "Why isn't this free?",
         a: [
           'Because we don\'t sell your data, and we don\'t use dark patterns to keep you hooked.',
           '',
