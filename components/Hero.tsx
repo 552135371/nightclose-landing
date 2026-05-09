@@ -21,9 +21,9 @@ export default function Hero({ variant }: HeroProps) {
   const data = content[variant as keyof typeof content] || content.a
 
   const openTallyForm = () => {
-    // @ts-ignore - Tally is loaded via script tag
+    // @ts-expect-error - Tally is loaded via script tag
     if (typeof window !== 'undefined' && window.Tally) {
-      // @ts-ignore
+      // @ts-expect-error - Tally types not available
       window.Tally.openPopup('0Q1EEA', {
         layout: 'modal',
         width: 600,

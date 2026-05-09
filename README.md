@@ -53,9 +53,9 @@ git push origin main
 2. **重构 Variant B/C/D 至 v2.3**
    - 基于 Variant A 的成功经验
    - 统一信息架构（Hero → Problem → Transition → Solution → Social Proof → Pricing → FAQ → Final CTA）
-3. 集成 Vercel Analytics（已启用，需配置事件追踪）
-4. 集成 Tally.so 或 ConvertKit（Waitlist表单）
-5. SEO优化（meta tags）
+3. ~~集成 Tally.so Waitlist~~（✅ 已完成，表单 ID: 0Q1EEA）
+4. 集成 Vercel Analytics 事件追踪（已启用基础追踪，需配置自定义事件）
+5. SEO优化（meta tags，Open Graph）
 
 ## 版本历史
 
