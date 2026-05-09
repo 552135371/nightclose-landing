@@ -23,8 +23,7 @@ const content = {
           'The app doesn\'t show your 20 wins anymore—just the one miss.',
           'So you stop opening it. Not because you gave up on the habit.',
           'Because seeing zero feels worse than not trying at all.'
-        ],
-        stat: { value: '72%', label: 'quit within 3 weeks after reset' }
+        ]
       },
       {
         number: '03',
