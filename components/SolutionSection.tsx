@@ -42,38 +42,35 @@ const content = {
     ]
   },
   b: {
-    title: 'NightClose: Evidence-based habit formation.',
+    title: 'No more Day 1. Backed by research.',
     features: [
       {
         icon: '📊',
-        title: 'Every completion adds to your total—permanently',
+        title: '20 completions is still 20—even if you miss a week.',
         content: [
-          'No cycles. No time limits. Just cumulative counting.',
-          'Behavioral science shows: consistency > perfection.',
-          '12 completions done. Miss a day? Still 12.',
-          'Your progress accumulates. Your momentum stays.'
+          'We count completions, not streaks. Miss a day? Your total stays.',
+          'Take a month off? Your 47 workouts are still 47 when you come back.',
+          'Cumulative progress. Permanent record. No resets.'
         ],
         image: null
       },
       {
         icon: '✨',
-        title: 'See only your successes—no red marks',
+        title: "You see wins. Not red X's.",
         content: [
-          'Research: Viewing failed days increases quit rate by 65% within 7 days.',
-          'We show only completions. Failures don\'t enter the record.',
-          'Your timeline is a success-only feed.',
-          'Your brain sees progress, not failure.'
+          'Your timeline shows only the days you showed up.',
+          'No failure markers. No guilt-inducing gaps.',
+          'Just proof that you did it—22 times, 104 times, however many.'
         ],
         image: '/success-log.png'
       },
       {
         icon: '🌙',
-        title: "Gentle exit protocol when you can't continue",
+        title: "We don't chase you. We let you rest.",
         content: [
-          'Didn\'t complete today? One-tap closure—no guilt, no questions.',
-          'Psychological closure reduces next-day anxiety by 40%.',
-          'Tomorrow starts clean. Your total stays.',
-          'Science-backed support, not pressure.'
+          'End your day, and NightClose says: "Today\'s done. See you tomorrow."',
+          'No push notifications at 11:47pm. No "Don\'t break your streak!" anxiety.',
+          'Science-backed design. Not surveillance.'
         ],
         image: '/quiet-closure.png'
       }
