@@ -14,6 +14,17 @@ const content = {
     audience: "Built for people who've lost their streak—but not their commitment.",
     cta: 'Join the Waitlist',
     caption: 'Early access · $4.99/mo · iOS launching Summer 2026'
+  },
+  b: {
+    headline: "Why do you keep restarting from Day 1?",
+    subheadline: [
+      'Research shows: 72% of perfectionists say restarting is the hardest part.',
+      "Traditional apps reset your progress. NightClose doesn't.",
+      'Cumulative counting. No Day 1. Evidence-based design.'
+    ],
+    audience: "Backed by behavioral science",
+    cta: 'Join the Waitlist',
+    caption: 'Early access · $4.99/mo · iOS launching Summer 2026'
   }
 }
 
@@ -132,23 +143,23 @@ export default function Hero({ variant }: HeroProps) {
         {/* Right Column: Hero App Screenshot */}
         <div className="relative mx-auto w-full max-w-[320px] lg:max-w-[360px] mt-12 lg:mt-0">
           {/* Subtle glow behind the phone */}
-          <div 
+          <div
             className="absolute inset-0 blur-3xl opacity-30 rounded-full"
             style={{ background: 'var(--coral)' }}
           />
-          
+
           {/* Image Wrapper to clip black corners */}
-          <div 
+          <div
             className="relative w-full rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border-[6px] md:border-[8px] transition-transform duration-700 hover:-translate-y-2 z-10"
-            style={{ 
+            style={{
               borderColor: 'var(--warm-50)',
               boxShadow: '0 20px 40px -10px rgba(232, 153, 141, 0.3)',
               backgroundColor: 'var(--warm-50)'
             }}
           >
-            <img 
-              src="/start-small.png" 
-              alt="Start with one small thing" 
+            <img
+              src="/start-small.png"
+              alt="Start with one small thing"
               className="w-full h-auto block"
               style={{ transform: 'scale(1.03)' }} // scale slightly to crop out the black pixels
             />

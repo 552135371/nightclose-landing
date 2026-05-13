@@ -11,6 +11,13 @@ const content = {
     caption: '',
     cta: 'Join the Waitlist',
     trustBadge: 'We\'ll never spam you. Unsubscribe anytime.'
+  },
+  b: {
+    headline: 'No more Day 1. Backed by research.',
+    subheadline: 'Join 500+ people who eliminated the restart penalty. Early access opens Summer 2026.',
+    caption: '',
+    cta: 'Join the Waitlist',
+    trustBadge: '🔒 We\'ll never spam you. Unsubscribe anytime.'
   }
 }
 

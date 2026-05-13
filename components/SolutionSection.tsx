@@ -40,6 +40,44 @@ const content = {
         image: '/quiet-closure.png'
       }
     ]
+  },
+  b: {
+    title: 'NightClose: Evidence-based habit formation.',
+    features: [
+      {
+        icon: '📊',
+        title: 'Every completion adds to your total—permanently',
+        content: [
+          'No cycles. No time limits. Just cumulative counting.',
+          'Behavioral science shows: consistency > perfection.',
+          '12 completions done. Miss a day? Still 12.',
+          'Your progress accumulates. Your momentum stays.'
+        ],
+        image: null
+      },
+      {
+        icon: '✨',
+        title: 'See only your successes—no red marks',
+        content: [
+          'Research: Viewing failed days increases quit rate by 65% within 7 days.',
+          'We show only completions. Failures don\'t enter the record.',
+          'Your timeline is a success-only feed.',
+          'Your brain sees progress, not failure.'
+        ],
+        image: '/success-log.png'
+      },
+      {
+        icon: '🌙',
+        title: "Gentle exit protocol when you can't continue",
+        content: [
+          'Didn\'t complete today? One-tap closure—no guilt, no questions.',
+          'Psychological closure reduces next-day anxiety by 40%.',
+          'Tomorrow starts clean. Your total stays.',
+          'Science-backed support, not pressure.'
+        ],
+        image: '/quiet-closure.png'
+      }
+    ]
   }
 }
 
@@ -107,7 +145,7 @@ export default function SolutionSection({ variant }: SolutionSectionProps) {
               }}
             >
               <div className={`flex flex-col ${i % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 md:gap-20`}>
-                
+
                 {/* Text Side */}
                 <div className="flex-1 flex flex-col sm:flex-row items-start gap-8 w-full">
                   {/* Icon */}
@@ -154,22 +192,22 @@ export default function SolutionSection({ variant }: SolutionSectionProps) {
                 {/* Image Side */}
                 {feature.image && (
                   <div className="w-full sm:w-[280px] md:w-[320px] flex-shrink-0 relative">
-                    <div 
+                    <div
                       className="absolute inset-0 blur-2xl opacity-20 rounded-full"
                       style={{ background: 'var(--coral)' }}
                     />
-                    
+
                     {/* Image Wrapper to clip black corners */}
-                    <div 
+                    <div
                       className="relative w-full rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border-[6px] md:border-[8px] transition-transform duration-700 group-hover:scale-[1.02] z-10"
-                      style={{ 
+                      style={{
                         borderColor: 'var(--warm-50)',
                         backgroundColor: 'var(--warm-50)'
                       }}
                     >
-                      <img 
-                        src={feature.image} 
-                        alt={feature.title} 
+                      <img
+                        src={feature.image}
+                        alt={feature.title}
                         className="w-full h-auto block"
                         style={{ transform: 'scale(1.03)' }} // scale slightly to crop out black pixels
                       />

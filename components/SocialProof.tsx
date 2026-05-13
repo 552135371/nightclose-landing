@@ -22,6 +22,26 @@ const content = {
         location: 'early access'
       }
     ]
+  },
+  b: {
+    title: 'What early testers say.',
+    testimonials: [
+      {
+        quote: 'I tracked every restart over 6 months: 8 times back to Day 1. The activation cost compounded each time. NightClose eliminated the restart penalty. Simple as that.',
+        author: 'David',
+        location: 'PhD candidate, Boston'
+      },
+      {
+        quote: 'I reviewed the behavioral science literature. Consecutive counting creates avoidance. Cumulative counting doesn\'t. This is the only app designed according to the research.',
+        author: 'Dr. Emma Chen',
+        location: 'Clinical Psychologist, Toronto'
+      },
+      {
+        quote: 'Day 1 → Day 12 → Day 1 → Day 5 → Day 1 → quit. That was Streaks for me. NightClose: 47 completions. No Day 1. Ever.',
+        author: 'Marcus',
+        location: 'Software Engineer, Berlin'
+      }
+    ]
   }
 }
 

@@ -42,6 +42,56 @@ const content = {
         ]
       }
     ]
+  },
+  b: {
+    items: [
+      {
+        q: 'Why does restarting from Day 1 cause failure?',
+        a: [
+          'The restart penalty compounds over time.',
+          '',
+          'Research (Flett et al., 2016): 72% of perfectionists report "starting is harder than persisting."',
+          '',
+          'What happens with traditional apps:',
+          '• Attempt 1: Day 1 → Day 15 → miss → reset → activation barrier = baseline',
+          '• Attempt 2: Day 1 → Day 8 → miss → reset → activation barrier = baseline + guilt',
+          '• Attempt 3: Day 1 → Day 3 → miss → reset → activation barrier = baseline + guilt + learned helplessness',
+          '• Result: Quit',
+          '',
+          'NightClose eliminates the restart penalty. You never go back to Day 1. Your activation barrier never increases. Cumulative counting maintains momentum.',
+          '',
+          '(Sources: Flett et al., 2016; Behavioral Science, 2021)'
+        ]
+      },
+      {
+        q: "Where's the research from?",
+        a: [
+          'Our design is informed by peer-reviewed studies from:',
+          '• Behavioral Science (2021) — habit app retention and reset patterns',
+          '• Powers et al. (2007) — self-criticism and recovery time',
+          '• Flett et al. (2016) — perfectionism and startup barriers',
+          '• Neff (2003) — self-compassion and behavioral change',
+          '',
+          'All citations available in our research documentation.'
+        ]
+      },
+      {
+        q: "Does 'cumulative' mean no accountability?",
+        a: [
+          'No—every completion still counts. The difference: we don\'t punish you for being human.',
+          '',
+          'Miss a day? Your progress stays. Traditional apps erase your progress to create anxiety (the "reset trap"). We count every win—because behavioral science shows consistency matters more than perfection.',
+          '',
+          'You\'re not off the hook. You\'re just not starting from zero.'
+        ]
+      },
+      {
+        q: 'Is this a therapy app?',
+        a: [
+          'No. We\'re a habit tracking tool informed by research. If you\'re struggling with mental health, please see a licensed professional. We\'re a tool, not a treatment.'
+        ]
+      }
+    ]
   }
 }
 

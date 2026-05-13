@@ -36,6 +36,43 @@ const content = {
         stat: { value: '72%', label: 'quit within 3 weeks' }
       }
     ]
+  },
+  b: {
+    title: 'Day 1. Again. Again. Again.',
+    problems: [
+      {
+        number: '01',
+        title: 'Day 18 → Day 0',
+        content: [
+          'You had a streak going. Then life happened—a deadline, a sick kid, or you just forgot.',
+          'You open the app the next morning.',
+          'Day 0.',
+          'All those days, gone.'
+        ]
+      },
+      {
+        number: '02',
+        title: 'Every restart gets harder',
+        content: [
+          '2nd time: "I just need more discipline."',
+          '5th time: "Why can\'t I stick to anything?"',
+          '8th time: "Maybe I\'m just not built for this."',
+          '',
+          'The app doesn\'t see the weight. But you feel it.'
+        ]
+      },
+      {
+        number: '03',
+        title: "72% quit. You're not alone.",
+        content: [
+          'Research shows: 72% of people say restarting is harder than persisting.',
+          'It\'s not you. It\'s the design.',
+          'The traditional streak model punishes imperfection. Your brain learns to avoid it.',
+          'NightClose eliminates the restart penalty—because you never go back to Day 1.'
+        ],
+        stat: { value: '72%', label: 'say restarting is harder' }
+      }
+    ]
   }
 }
 
@@ -113,17 +150,44 @@ export default function ProblemSection({ variant }: ProblemSectionProps) {
 
               {/* Content */}
               <div className="space-y-4 mb-8 flex-1 relative z-10">
-                {problem.content.map((line, j) => (
-                  <p
-                    key={j}
-                    className="text-base md:text-lg leading-relaxed"
-                    style={{
-                      color: 'var(--text-secondary)'
-                    }}
-                  >
-                    {line}
-                  </p>
-                ))}
+                {problem.content.map((line, j) => {
+                  // Highlight "It's not you. It's the design."
+                  if (line.includes("It's not you. It's the design.")) {
+                    const parts = line.split("It's not you. It's the design.")
+                    return (
+                      <p
+                        key={j}
+                        className="text-base md:text-lg leading-relaxed"
+                        style={{
+                          color: 'var(--text-secondary)'
+                        }}
+                      >
+                        {parts[0]}
+                        <span
+                          style={{
+                            color: 'var(--coral)',
+                            fontWeight: '600'
+                          }}
+                        >
+                          It's not you. It's the design.
+                        </span>
+                        {parts[1]}
+                      </p>
+                    )
+                  }
+
+                  return (
+                    <p
+                      key={j}
+                      className="text-base md:text-lg leading-relaxed"
+                      style={{
+                        color: 'var(--text-secondary)'
+                      }}
+                    >
+                      {line}
+                    </p>
+                  )
+                })}
               </div>
 
               {/* Stat - highlighted */}

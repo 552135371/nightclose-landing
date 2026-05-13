@@ -16,6 +16,20 @@ const content = {
     ],
     badge: 'Early Bird: Get 2 months free',
     cta: 'Reserve Your Spot'
+  },
+  b: {
+    headline: 'Simple, transparent pricing.',
+    price: '$4.99',
+    period: 'month',
+    features: [
+      'One habit to start',
+      'Cumulative progress (never resets)',
+      'Win-only timeline',
+      'Evidence-based design',
+      'No ads, no manipulation'
+    ],
+    badge: 'Early Bird: Get 2 months free',
+    cta: 'Reserve Your Spot'
   }
 }
 
