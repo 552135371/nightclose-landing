@@ -8,32 +8,33 @@ const content = {
     problems: [
       {
         number: '01',
-        title: 'The moment it breaks',
+        title: '20 days you showed up',
         content: [
-          'You\'re on day 21. Life happens—a deadline, a sick kid, a night you just forgot.',
-          'You open the app the next morning. Day 0.',
-          'All those green checkmarks, gone. Not paused. Not saved. Erased.'
+          '20 mornings you chose to start.',
+          '20 times you pushed through when you didn\'t feel like it.',
+          '20 days that proved you were trying.',
+          'Your effort was real.'
         ]
       },
       {
         number: '02',
-        title: 'The spiral that follows',
+        title: '1 day you missed',
         content: [
-          'First, you feel shame. Then you think: "I ruined it again."',
-          'The app doesn\'t show your 20 wins anymore—just the one miss.',
-          'So you stop opening it. Not because you gave up on the habit.',
-          'Because seeing zero feels worse than not trying at all.'
+          'Life happened. A deadline, a sick kid, or you just forgot.',
+          'One miss. One moment of being human.',
+          'That\'s not failure. That\'s life.'
         ]
       },
       {
         number: '03',
-        title: 'It\'s not your fault. It\'s the system.',
+        title: '0 is what the app showed you',
         content: [
-          '72% of habit app users quit within 3 weeks—not because they lack discipline, but because the app punishes imperfection.',
-          'One miss = total reset. Your brain sees "Day 0" and learns: "Why bother?"',
-          'The apps you trusted treated progress like a house of cards.'
+          'The app erased 20 days because of 1 miss.',
+          'That\'s not accountability. That\'s erasure.',
+          '72% of users quit—not because they failed. Because the app did.',
+          'Your progress deserved better.'
         ],
-        stat: { value: '72%', label: 'quit within 3 weeks' }
+        stat: { value: '72%', label: 'quit because of resets' }
       }
     ]
   },
@@ -151,7 +152,7 @@ export default function ProblemSection({ variant }: ProblemSectionProps) {
               {/* Content */}
               <div className="space-y-4 mb-8 flex-1 relative z-10">
                 {problem.content.map((line, j) => {
-                  // Highlight "It's not you. It's the design."
+                  // Highlight key phrases
                   if (line.includes("It's not you. It's the design.")) {
                     const parts = line.split("It's not you. It's the design.")
                     return (
@@ -170,6 +171,30 @@ export default function ProblemSection({ variant }: ProblemSectionProps) {
                           }}
                         >
                           It's not you. It's the design.
+                        </span>
+                        {parts[1]}
+                      </p>
+                    )
+                  }
+
+                  if (line.includes("That's not accountability. That's erasure.")) {
+                    const parts = line.split("That's not accountability. That's erasure.")
+                    return (
+                      <p
+                        key={j}
+                        className="text-base md:text-lg leading-relaxed"
+                        style={{
+                          color: 'var(--text-secondary)'
+                        }}
+                      >
+                        {parts[0]}
+                        <span
+                          style={{
+                            color: 'var(--coral)',
+                            fontWeight: '600'
+                          }}
+                        >
+                          That's not accountability. That's erasure.
                         </span>
                         {parts[1]}
                       </p>
