@@ -112,10 +112,10 @@ export default function CycleVisual() {
         </div>
 
         {/* Loop Back Hint */}
-        <div className="mt-16 text-center flex flex-col items-center">
-          <div className="w-px h-12 mb-4" style={{ background: 'linear-gradient(to bottom, var(--warm-200), transparent)' }} />
+        <div className="mt-12 text-center flex flex-col items-center">
+          <div className="w-px h-8 mb-3" style={{ background: 'linear-gradient(to bottom, var(--warm-200), transparent)' }} />
           <p
-            className="serif text-2xl md:text-3xl mb-4"
+            className="serif text-2xl md:text-3xl mb-3"
             style={{
               color: 'var(--text-primary)',
               fontStyle: 'italic',
