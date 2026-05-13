@@ -29,7 +29,7 @@ export default function CycleVisual() {
   ]
 
   return (
-    <section className="px-6 pt-12 pb-24 md:pt-16 md:pb-36 relative overflow-hidden">
+    <section className="px-6 py-12 md:py-16 relative overflow-hidden">
       {/* Decorative background gradient */}
       <div
         className="absolute inset-0 opacity-30"
@@ -109,29 +109,6 @@ export default function CycleVisual() {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Loop Back Hint */}
-        <div className="mt-12 text-center flex flex-col items-center">
-          <div className="w-px h-8 mb-3" style={{ background: 'linear-gradient(to bottom, var(--warm-200), transparent)' }} />
-          <p
-            className="serif text-2xl md:text-3xl mb-3"
-            style={{
-              color: 'var(--text-primary)',
-              fontStyle: 'italic',
-            }}
-          >
-            Sound familiar?
-          </p>
-          <p
-            className="text-base md:text-lg max-w-xl mx-auto"
-            style={{
-              color: 'var(--text-secondary)',
-              lineHeight: '1.7'
-            }}
-          >
-            <span className="font-semibold" style={{ color: 'var(--coral-dark)' }}>72%</span> of perfectionists say the hardest part isn&apos;t doing the work—it&apos;s starting over after a reset.
-          </p>
         </div>
       </div>
     </section>

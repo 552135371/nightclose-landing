@@ -95,22 +95,6 @@ export default function SolutionSection({ variant }: SolutionSectionProps) {
       />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Transition Moment */}
-        {'transition' in data && (
-          <div className="text-center mb-16">
-            <p
-              className="text-xl md:text-2xl"
-              style={{
-                color: 'var(--text-secondary)',
-                fontStyle: 'italic',
-                fontWeight: '400'
-              }}
-            >
-              {data.transition}
-            </p>
-          </div>
-        )}
-
         {/* Section Title */}
         <div className="text-center mb-20">
           <h2
