@@ -85,7 +85,7 @@ export default function SolutionSection({ variant }: SolutionSectionProps) {
   const data = content[variant as keyof typeof content] || content.a
 
   return (
-    <section className="px-6 pt-12 pb-20 md:pt-16 md:pb-32 relative overflow-hidden">
+    <section className="px-6 py-20 md:py-32 relative overflow-hidden">
       {/* Decorative gradient */}
       <div
         className="absolute top-0 right-0 w-1/2 h-full opacity-20"
