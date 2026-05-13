@@ -2,7 +2,7 @@ import Hero from '@/components/Hero'
 import ProblemSection from '@/components/ProblemSection'
 import CycleVisual from '@/components/CycleVisual'
 import TransitionMoment from '@/components/TransitionMoment'
-import SolutionSection from '@/components/SolutionSection'
+import SolutionSectionVariantA from '@/components/SolutionSectionVariantA'
 import SocialProof from '@/components/SocialProof'
 import Pricing from '@/components/Pricing'
 import FAQ from '@/components/FAQ'
@@ -17,7 +17,7 @@ export default function VariantA() {
       <ProblemSection variant={variant} />
       <CycleVisual />
       <TransitionMoment />
-      <SolutionSection variant={variant} />
+      <SolutionSectionVariantA />
       <SocialProof variant={variant} />
       <Pricing variant={variant} />
       <FAQ variant={variant} />

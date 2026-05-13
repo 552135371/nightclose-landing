@@ -1,6 +1,6 @@
 export default function TransitionMoment() {
   return (
-    <section className="px-6 py-12 md:py-16 relative overflow-hidden">
+    <section className="px-6 py-8 md:py-12 relative overflow-hidden">
       {/* Subtle gradient background */}
       <div
         className="absolute inset-0 opacity-20"
