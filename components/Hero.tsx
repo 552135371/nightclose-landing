@@ -53,9 +53,9 @@ export default function Hero({ variant }: HeroProps) {
         }}
       />
 
-      <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-        {/* Left Column: Text Content */}
-        <div className="max-w-2xl">
+      <div className={`max-w-7xl mx-auto relative z-10 ${variant === 'b' ? 'text-center' : 'grid lg:grid-cols-2 gap-16 items-center'}`}>
+        {/* Text Content */}
+        <div className={variant === 'b' ? 'max-w-3xl mx-auto' : 'max-w-2xl'}>
           {/* Eyebrow with accent */}
           <div className="flex items-center gap-3 mb-8">
             <div
@@ -140,31 +140,33 @@ export default function Hero({ variant }: HeroProps) {
           </p>
         </div>
 
-        {/* Right Column: Hero App Screenshot */}
-        <div className="relative mx-auto w-full max-w-[320px] lg:max-w-[360px] mt-12 lg:mt-0">
-          {/* Subtle glow behind the phone */}
-          <div
-            className="absolute inset-0 blur-3xl opacity-30 rounded-full"
-            style={{ background: 'var(--coral)' }}
-          />
-
-          {/* Image Wrapper to clip black corners */}
-          <div
-            className="relative w-full rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border-[6px] md:border-[8px] transition-transform duration-700 hover:-translate-y-2 z-10"
-            style={{
-              borderColor: 'var(--warm-50)',
-              boxShadow: '0 20px 40px -10px rgba(232, 153, 141, 0.3)',
-              backgroundColor: 'var(--warm-50)'
-            }}
-          >
-            <img
-              src="/start-small.png"
-              alt="Start with one small thing"
-              className="w-full h-auto block"
-              style={{ transform: 'scale(1.03)' }} // scale slightly to crop out the black pixels
+        {/* Right Column: Hero App Screenshot (hide for variant B) */}
+        {variant !== 'b' && (
+          <div className="relative mx-auto w-full max-w-[320px] lg:max-w-[360px] mt-12 lg:mt-0">
+            {/* Subtle glow behind the phone */}
+            <div
+              className="absolute inset-0 blur-3xl opacity-30 rounded-full"
+              style={{ background: 'var(--coral)' }}
             />
+
+            {/* Image Wrapper to clip black corners */}
+            <div
+              className="relative w-full rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border-[6px] md:border-[8px] transition-transform duration-700 hover:-translate-y-2 z-10"
+              style={{
+                borderColor: 'var(--warm-50)',
+                boxShadow: '0 20px 40px -10px rgba(232, 153, 141, 0.3)',
+                backgroundColor: 'var(--warm-50)'
+              }}
+            >
+              <img
+                src="/start-small.png"
+                alt="Start with one small thing"
+                className="w-full h-auto block"
+                style={{ transform: 'scale(1.03)' }} // scale slightly to crop out the black pixels
+              />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   )

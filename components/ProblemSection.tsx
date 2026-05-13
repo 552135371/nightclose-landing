@@ -152,6 +152,33 @@ export default function ProblemSection({ variant }: ProblemSectionProps) {
               {/* Content */}
               <div className="space-y-4 mb-8 flex-1 relative z-10">
                 {problem.content.map((line, j) => {
+                  // Highlight numbers at start of line (20, 1, 0, 2nd, 5th, 8th, etc.)
+                  const numberMatch = line.match(/^(\d+|2nd|5th|8th)(\s)/)
+                  if (numberMatch) {
+                    const number = numberMatch[1]
+                    const rest = line.substring(numberMatch[0].length)
+                    return (
+                      <p
+                        key={j}
+                        className="text-base md:text-lg leading-relaxed"
+                        style={{
+                          color: 'var(--text-secondary)'
+                        }}
+                      >
+                        <span
+                          style={{
+                            color: 'var(--coral)',
+                            fontWeight: '600',
+                            fontSize: '1.1em'
+                          }}
+                        >
+                          {number}
+                        </span>
+                        {' ' + rest}
+                      </p>
+                    )
+                  }
+
                   // Highlight key phrases
                   if (line.includes("It's not you. It's the design.")) {
                     const parts = line.split("It's not you. It's the design.")
