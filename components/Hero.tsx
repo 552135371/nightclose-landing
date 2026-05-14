@@ -57,7 +57,7 @@ export default function Hero({ variant }: HeroProps) {
         {/* Text Content */}
         <div className={variant === 'b' ? 'max-w-3xl mx-auto' : 'max-w-2xl'}>
           {/* Eyebrow with accent */}
-          <div className="flex items-center gap-3 mb-8">
+          <div className={`flex items-center gap-3 mb-8 ${variant === 'b' ? 'justify-center' : ''}`}>
             <div
               className="w-8 h-px"
               style={{ background: 'var(--coral)' }}
@@ -112,7 +112,7 @@ export default function Hero({ variant }: HeroProps) {
           </div>
 
           {/* CTA - elegant button with shadow */}
-          <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
+          <div className={`flex flex-col sm:flex-row items-start gap-4 mb-6 ${variant === 'b' ? 'justify-center' : ''}`}>
             <button
               onClick={openTallyForm}
               className="group px-6 py-3.5 md:px-8 md:py-4 rounded-full text-base font-medium transition-all duration-300 w-full sm:w-auto text-center"
